@@ -7,6 +7,7 @@ var pointsPerLevel = [ 0, 4, 6, 14, 17, 27, 32, 38, 44, 57, 64, 73, 73, 83, 83,
 var max = 0;
 var totalCost = 0;
 var remaining = 0;
+var castable = true;
 
 // string formatting function
 String.prototype.format = String.prototype.f = function() {
@@ -42,6 +43,9 @@ function genTable(base) {
 }
 
 function getMaxPoints() {
+    castable = true;
+    totalCost = 0;
+    document.getElementById("casting").innerHTML = totalCost;
     var index = document.getElementById("casterLevel").selectedIndex;
     max = Number(pointsPerLevel[index]);
     document.getElementById("maxPoints").innerHTML = max;
@@ -49,19 +53,21 @@ function getMaxPoints() {
 }
 
 function getSpellCost(x) {
-    totalCost += Number(x);
-    remaining = Number(max) - totalCost; 
-    document.getElementById("remaining").innerHTML = remaining;
-    document.getElementById("casting").innerHTML = totalCost;
-    // warn and lock remaining point total if unable to cast
-    if (x > remaining) {
-        document.getElementById("remaining").innerHTML = "Not enough points!";
-        remaining += Number(x);
-        totalCost -= Number(x);
+    if (castable === true) {
+        totalCost += Number(x);
+        remaining = Number(max) - totalCost; 
+        document.getElementById("remaining").innerHTML = remaining;
+        document.getElementById("casting").innerHTML = totalCost;
+        // warn and lock remaining point total if unable to cast
+        if (x > remaining) {
+            document.getElementById("remaining").innerHTML = "Not enough points!";
+            remaining += Number(x);
+            totalCost -= Number(x);
+            castable = false;
+        }
+
+        genTable(remaining);
     }
-
-    genTable(remaining);
-
 }
 
 // initial state
