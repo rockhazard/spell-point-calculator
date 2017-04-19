@@ -82,11 +82,9 @@ function getSpellCost(x) {
 }
 
 // initial state
-getMaxPoints();
 genTable(getMaxPoints());
 
 document.getElementById("casterLevel").onclick = function(){
-    // reset
-    getMaxPoints();
+    // reset calculations
     genTable(getMaxPoints());
 };
