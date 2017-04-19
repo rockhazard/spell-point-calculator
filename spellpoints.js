@@ -34,11 +34,34 @@ function insertElement(parentElementID, newElement, newElementContent) {
     parent.appendChild(child);
 }
 
+// remaining spells if all points are expended on given spell level
+function genTable(base) {
+    var $1Remain = Math.floor(base / 2);
+    var $2Remain = Math.floor(base / 3);
+    var $3Remain = Math.floor(base / 5);
+    var $4Remain = Math.floor(base / 6);
+    var $5Remain = Math.floor(base / 7);
+    var $6Remain = Math.floor(base / 9);
+    var $7Remain = Math.floor(base / 10);
+    var $8Remain = Math.floor(base / 11);
+    var $9Remain = Math.floor(base / 13);
+
+    var remainder = [ $1Remain, $2Remain, $3Remain, $4Remain, $5Remain, 
+        $6Remain, $7Remain, $8Remain, $9Remain ];
+
+    // fill table with remaining castings per level
+    for (var i = 0; i < remainder.length; i++) {
+        document.getElementById("Level{0}Castings".f(i + 1)).innerHTML =
+            remainder[i];
+    }
+}
+
 
 function getMaxPoints() {
     var index = document.getElementById("casterLevel").selectedIndex;
     max = Number(pointsPerLevel[index]);
     document.getElementById("maxPoints").innerHTML = max;
+    return max;
 }
 
 
@@ -54,27 +77,16 @@ function getSpellCost(x) {
         totalCost -= Number(x);
     }
 
-    // remaining spells if all points are expended on given spell level
-    var $1Remain = Math.floor(remaining / 2);
-    var $2Remain = Math.floor(remaining / 3);
-    var $3Remain = Math.floor(remaining / 5);
-    var $4Remain = Math.floor(remaining / 6);
-    var $5Remain = Math.floor(remaining / 7);
-    var $6Remain = Math.floor(remaining / 9);
-    var $7Remain = Math.floor(remaining / 10);
-    var $8Remain = Math.floor(remaining / 11);
-    var $9Remain = Math.floor(remaining / 13);
+    genTable(remaining);
 
-    var remainder = [ $1Remain, $2Remain, $3Remain, $4Remain, $5Remain, 
-        $6Remain, $7Remain, $8Remain, $9Remain ];
-
-    // fill table with remaining castings per level
-    for (var i = 0; i < remainder.length; i++) {
-        document.getElementById("Level{0}Castings".f(i + 1)).innerHTML =
-            remainder[i];
-    }
 }
 
+// initial state
+getMaxPoints();
+genTable(getMaxPoints());
+
 document.getElementById("casterLevel").onclick = function(){
+    // reset
     getMaxPoints();
+    genTable(getMaxPoints());
 };
