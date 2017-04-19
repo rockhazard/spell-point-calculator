@@ -1,0 +1,49 @@
+body {
+	background-color: black;
+	font-family: monospace;
+	font-size: 22;
+}
+
+h1 {
+	color: white;
+}
+
+h3 {
+	color: aqua;
+}
+
+p {
+	color: white;
+	font-size: 22;
+	width: 640px;
+}
+
+select{
+	font-weight: bold;
+	border-style: none;
+	border-left-style: solid;
+	border-left-color: blue;
+}
+
+button {
+	font-weight: bold;
+	border-style: dashed;
+	border-color: blue;	
+	background-color: aqua;
+}
+
+table {
+	font-weight: bold;
+	font-size: 22;
+	border-style: dashed;
+	border-color: aqua;
+}
+
+tr.header {
+	background-color: aqua;;
+}
+
+tr.data {
+	background-color: white;
+}
+

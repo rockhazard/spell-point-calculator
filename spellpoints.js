@@ -47,9 +47,11 @@ function getSpellCost(x) {
     remaining = Number(max) - totalCost; 
     document.getElementById("remaining").innerHTML = remaining;
     document.getElementById("casting").innerHTML = totalCost;
+    // warn and lock remaining point total if unable to cast
     if (x > remaining) {
         document.getElementById("remaining").innerHTML = "Not enough points!";
         remaining += Number(x);
+        totalCost -= Number(x);
     }
 
     // remaining spells if all points are expended on given spell level
