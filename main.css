@@ -18,11 +18,15 @@ p {
 	width: 640px;
 }
 
-select{
+p.data {
+	font-size: 26;
+}
+
+select {
 	font-weight: bold;
 	border-style: none;
-	border-left-style: solid;
-	border-left-color: blue;
+	border-style: solid;
+	border-color: aqua;
 }
 
 button {
@@ -34,8 +38,7 @@ button {
 
 table {
 	font-weight: bold;
-	font-size: 22;
-	border-style: dashed;
+	font-size: 26;
 	border-color: aqua;
 }
 
@@ -46,4 +49,3 @@ tr.header {
 tr.data {
 	background-color: white;
 }
-
