@@ -19,21 +19,6 @@ String.prototype.format = String.prototype.f = function() {
     return s;
 };
 
-// create a new child element with text content
-function insertElement(parentElementID, newElement, newElementContent) {
-    var parent = document.getElementById(parentElementID);
-    var child = document.createElement(newElement);
-    // simple insertion of content
-    // child.innerHTML = newElementContent;
-    // parent.appendChild(child);
-
-    // longer but more exact insertion method
-    // allows direct manipulation of the textNode object:
-    var data = document.createTextNode(newElementContent);
-    child.appendChild(data);
-    parent.appendChild(child);
-}
-
 // remaining spells if all points are expended on given spell level
 function genTable(base) {
     var $1Remain = Math.floor(base / 2);
@@ -56,14 +41,12 @@ function genTable(base) {
     }
 }
 
-
 function getMaxPoints() {
     var index = document.getElementById("casterLevel").selectedIndex;
     max = Number(pointsPerLevel[index]);
     document.getElementById("maxPoints").innerHTML = max;
     return max;
 }
-
 
 function getSpellCost(x) {
     totalCost += Number(x);
