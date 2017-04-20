@@ -40,6 +40,16 @@ function genTable(base) {
         document.getElementById("Level{0}Castings".f(i + 1)).innerHTML =
             remainder[i];
     }
+
+    return remainder;
+}
+
+function flagCastable(points) {
+    if (points <= remaining) {
+        castable = true;
+    } else {
+        castable = false;
+    }
 }
 
 function getMaxPoints() {
@@ -48,32 +58,25 @@ function getMaxPoints() {
     document.getElementById("casting").innerHTML = totalCost;
     var index = document.getElementById("casterLevel").selectedIndex;
     max = Number(pointsPerLevel[index]);
-    document.getElementById("maxPoints").innerHTML = max;
+    document.getElementById("max").innerHTML = max;
     return max;
 }
 
 function getSpellCost(x) {
+    x = Number(x);
+    flagCastable(x);
     if (castable === true) {
-        totalCost += Number(x);
-        remaining = Number(max) - totalCost; 
-        document.getElementById("remaining").innerHTML = remaining;
+        totalCost += x;
+        remaining = Number(max) - totalCost;
         document.getElementById("casting").innerHTML = totalCost;
-        // warn and lock remaining point total if unable to cast
-        if (x > remaining) {
-            document.getElementById("remaining").innerHTML = "Not enough points!";
-            remaining += Number(x);
-            totalCost -= Number(x);
-            castable = false;
-        }
-
+        document.getElementById("remaining").innerHTML = remaining;
         genTable(remaining);
     }
 }
 
-// initial state
-genTable(getMaxPoints());
-
 document.getElementById("casterLevel").onclick = function(){
     // reset calculations
     genTable(getMaxPoints());
+    remaining = max;
+    totalCost = 0;
 };

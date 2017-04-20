@@ -35,18 +35,18 @@
 		</form>
 		<div id="remainCalc">
 			<h3>Cast a Spell:</h3>
-			<p>Click a button to cast a spell of that level. The cell below it tells you how many spells of that level you can cast with the remaining spell points.</p>
-			<table cellpadding="4" cellspacing="0" border="1">
+			<p>Cast a spell by clicking its level.</p>
+			<table cellpadding="4">
 			<tr id="levelHeader" class="header">
-				<td><button id="spellLevel" title="2 Spell Points" onclick="getSpellCost(this.value)" value="2" type="button">Level 1 (2)</button></td>
-				<td><button id="spellLevel" title="3 Spell Points" onclick="getSpellCost(this.value)" value="3" type="button">Level 2 (3)</button></td>
-				<td><button id="spellLevel" title="5 Spell Points" onclick="getSpellCost(this.value)" value="5" type="button">Level 3 (5)</button></td>
-				<td><button id="spellLevel" title="6 Spell Points" onclick="getSpellCost(this.value)" value="6" type="button">Level 4 (6)</button></td>
-				<td><button id="spellLevel" title="7 Spell Points" onclick="getSpellCost(this.value)" value="7" type="button">Level 5 (7)</button></td>
-				<td><button id="spellLevel" title="9 Spell Points" onclick="getSpellCost(this.value)" value="9" type="button">Level 6 (9)</button></td>
-				<td><button id="spellLevel" title="10 Spell Points" onclick="getSpellCost(this.value)" value="10" type="button">Level 7 (10)</button></td>
-				<td><button id="spellLevel" title="11 Spell Points" onclick="getSpellCost(this.value)" value="11" type="button">Level 8 (11)</button></td>
-				<td><button id="spellLevel" title="13 Spell Points" onclick="getSpellCost(this.value)" value="13" type="button">Level 9 (13)</button></td>
+				<td><button id="spellLevel" title="2 Spell Points" onclick="getSpellCost(this.value)" value="2" type="button">Level 1</button></td>
+				<td><button id="spellLevel" title="3 Spell Points" onclick="getSpellCost(this.value)" value="3" type="button">Level 2</button></td>
+				<td><button id="spellLevel" title="5 Spell Points" onclick="getSpellCost(this.value)" value="5" type="button">Level 3</button></td>
+				<td><button id="spellLevel" title="6 Spell Points" onclick="getSpellCost(this.value)" value="6" type="button">Level 4</button></td>
+				<td><button id="spellLevel" title="7 Spell Points" onclick="getSpellCost(this.value)" value="7" type="button">Level 5</button></td>
+				<td><button id="spellLevel" title="9 Spell Points" onclick="getSpellCost(this.value)" value="9" type="button">Level 6</button></td>
+				<td><button id="spellLevel" title="10 Spell Points" onclick="getSpellCost(this.value)" value="10" type="button">Level 7</button></td>
+				<td><button id="spellLevel" title="11 Spell Points" onclick="getSpellCost(this.value)" value="11" type="button">Level 8</button></td>
+				<td><button id="spellLevel" title="13 Spell Points" onclick="getSpellCost(this.value)" value="13" type="button">Level 9</button></td>
 			</tr>
 			<tr id="castingData" class="data">
 				<td id="Level1Castings">0</td>
@@ -61,15 +61,20 @@
 			</tr>
 			</table>
 		</div>
-		<div id="status" class="status">
-			<h3 id="p00">Max Spell Points: </h3>
-			<p id="maxPoints" class="data">0<p>
-
-			<h3>Spell Points Used: </h3>
-			<p id="casting" class="data">0</p>
-
-			<h3>Spell Points Remaining: </h3>
-			<p id="remaining" class="data">0</p>
+		<br>
+		<div>
+			<table id="statusTable" cellpadding="4">
+				<tr id="statusHeader" class="header">
+					<td id="statusHeader1">Max Points</td>
+					<td id="statusHeader2">Used Points</td>
+					<td id="statusHeader3">Remaining Points</td>
+				</tr>
+				<tr id="statusData" class="data">
+					<td id="max">0</td>
+					<td id="casting">0</td>
+					<td id="remaining">0</td>
+				</tr>
+			</table>
 		</div>
 	    <script src="spellpoints.js"></script>
 	</body>

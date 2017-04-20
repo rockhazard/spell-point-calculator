@@ -45,6 +45,7 @@ table {
 
 tr.header {
 	background-color: aqua;;
+	font-size: 18;
 }
 
 tr.data {
