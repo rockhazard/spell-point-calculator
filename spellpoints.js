@@ -7,7 +7,11 @@ var pointsPerLevel = [ 0, 4, 6, 14, 17, 27, 32, 38, 44, 57, 64, 73, 73, 83, 83,
 var max = 0;
 var totalCost = 0;
 var remaining = 0;
-var castable = true;
+var castable;
+var recovery = 0;
+var flagRecovery = false;
+var manualPoints = 0;
+var flagManualPoints = false;
 
 // string formatting function
 String.prototype.format = String.prototype.f = function() {
@@ -19,6 +23,17 @@ String.prototype.format = String.prototype.f = function() {
     }
     return s;
 };
+
+function arcaneRecovery() {
+    var recover = Math.floor(max / 2);
+    if (recover + remaining >= max) {
+        remaining = max;
+    } else {
+        remaining += recover;
+    }
+    document.getElementById("remaining").innerHTML = remaining;
+    return remaining;
+}
 
 // remaining spells if all points are expended on given spell level
 function genTable(base) {
@@ -52,6 +67,11 @@ function flagCastable(points) {
     }
 }
 
+function addManualPoints() { //not implemented
+    manualPoints = document.getElementById("manualPoints").value;
+    return manualPoints;
+}
+
 function getMaxPoints() {
     castable = true;
     totalCost = 0;
@@ -59,24 +79,49 @@ function getMaxPoints() {
     var index = document.getElementById("casterLevel").selectedIndex;
     max = Number(pointsPerLevel[index]);
     document.getElementById("max").innerHTML = max;
+    document.getElementById("remaining").innerHTML = max;
     return max;
 }
 
 function getSpellCost(x) {
     x = Number(x);
+    // check if the spell is castable
     flagCastable(x);
-    if (castable === true) {
+    if (castable) {
         totalCost += x;
-        remaining = Number(max) - totalCost;
+        // inject recovery points if recovery button clicked
+        if (flagRecovery) {
+            remaining = recovery - x;
+            recovery -= x;
+        } 
+        // inject manually added spell points into remaining
+        else if (flagManualPoints) {
+            remaining = manualPoints;
+            flagManualPoints = false;
+        } else {
+            remaining = Number(max) - totalCost;
+        }
+        // post results
         document.getElementById("casting").innerHTML = totalCost;
         document.getElementById("remaining").innerHTML = remaining;
         genTable(remaining);
     }
 }
 
+document.getElementById("recovery").onclick = function(){
+    recovery = arcaneRecovery();
+    flagRecovery = true;
+};
+
 document.getElementById("casterLevel").onclick = function(){
     // reset calculations
     genTable(getMaxPoints());
     remaining = max;
     totalCost = 0;
+};
+
+// not yet implemented
+document.getElementById("manualPoints").onsubmit = function(){
+    recovery = addManualPoints();
+    flagManualPoints = true;
 };

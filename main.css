@@ -32,6 +32,7 @@ select {
 
 button {
 	font-weight: bold;
+	font-size: 18;
 	border-style: dashed;
 	border-color: blue;	
 	background-color: aqua;
