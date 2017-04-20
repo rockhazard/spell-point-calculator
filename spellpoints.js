@@ -11,7 +11,7 @@ var castable;
 var recovery = 0;
 var flagRecovery = false;
 
-// string formatting function
+// string formatting function, aliased to string.f
 String.prototype.format = String.prototype.f = function() {
     var s = this,
         i = arguments.length;
@@ -22,6 +22,7 @@ String.prototype.format = String.prototype.f = function() {
     return s;
 };
 
+// adds half the caster's max points to remaining pool via arcane recovery
 function arcaneRecovery() {
     var recover = Math.floor(max / 2);
     if (recover + remaining >= max) {
@@ -33,7 +34,7 @@ function arcaneRecovery() {
     return remaining;
 }
 
-// remaining spells if all points are expended on given spell level
+// calculates max remaining castings for each given spell level
 function genTable(base) {
     var $1Remain = Math.floor(base / 2);
     var $2Remain = Math.floor(base / 3);
@@ -57,6 +58,7 @@ function genTable(base) {
     return remainder;
 }
 
+// prevents calculator from casting spells with too few points remaining
 function flagCastable(points) {
     if (points <= remaining) {
         castable = true;
@@ -76,16 +78,17 @@ function getMaxPoints() {
     return max;
 }
 
-function getSpellCost(x) {
-    x = Number(x);
+// recalculate spell points after casting a spell
+function getSpellCost(spell) {
+    spell = Number(spell);
     // check if the spell is castable
-    flagCastable(x);
+    flagCastable(spell);
     if (castable) {
-        totalCost += x;
-        // inject recovery points if recovery button clicked
+        totalCost += spell;
+        // inject recovery points if arcane recovery button clicked
         if (flagRecovery) {
-            remaining = recovery - x;
-            recovery -= x;
+            remaining = recovery - spell;
+            recovery -= spell;
         } else {
             remaining = Number(max) - totalCost;
         }
@@ -96,11 +99,13 @@ function getSpellCost(x) {
     }
 }
 
+// perform arcane recovery during a short rest
 document.getElementById("recovery").onclick = function(){
     recovery = arcaneRecovery();
     flagRecovery = true;
 };
 
+// set/reset spell point calculations according to caster level
 document.getElementById("casterLevel").onclick = function(){
     // reset calculations
     genTable(getMaxPoints());
