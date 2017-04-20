@@ -10,8 +10,6 @@ var remaining = 0;
 var castable;
 var recovery = 0;
 var flagRecovery = false;
-var manualPoints = 0;
-var flagManualPoints = false;
 
 // string formatting function
 String.prototype.format = String.prototype.f = function() {
@@ -67,11 +65,6 @@ function flagCastable(points) {
     }
 }
 
-function addManualPoints() { //not implemented
-    manualPoints = document.getElementById("manualPoints").value;
-    return manualPoints;
-}
-
 function getMaxPoints() {
     castable = true;
     totalCost = 0;
@@ -93,11 +86,6 @@ function getSpellCost(x) {
         if (flagRecovery) {
             remaining = recovery - x;
             recovery -= x;
-        } 
-        // inject manually added spell points into remaining
-        else if (flagManualPoints) {
-            remaining = manualPoints;
-            flagManualPoints = false;
         } else {
             remaining = Number(max) - totalCost;
         }
@@ -118,10 +106,4 @@ document.getElementById("casterLevel").onclick = function(){
     genTable(getMaxPoints());
     remaining = max;
     totalCost = 0;
-};
-
-// not yet implemented
-document.getElementById("manualPoints").onsubmit = function(){
-    recovery = addManualPoints();
-    flagManualPoints = true;
 };
