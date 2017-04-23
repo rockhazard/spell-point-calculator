@@ -9,7 +9,7 @@ h1 {
 }
 
 h3 {
-	color: aqua;
+	color: #ffff99;
 }
 
 p {
@@ -27,28 +27,53 @@ select {
 	font-size: 26;
 	border-style: none;
 	border-style: solid;
-	border-color: aqua;
+	border-color: #ffff99;
 }
 
 button {
 	font-weight: bold;
 	font-size: 18;
 	border-style: dashed;
-	border-color: blue;	
-	background-color: aqua;
+	border-color: black;	
+	background-color: #ffff99;
+	align-content: center;
 }
 
 table {
 	font-weight: bold;
 	font-size: 26;
-	border-color: aqua;
+	/*border-collapse: collapse;*/
+	border-color: #ffff99;
+}
+
+table.spells {
+	width: 640px;
+	font-weight: bold;
+	font-size: 26;
+	/*border-collapse: collapse;*/
+	border-color: #ffff99;
 }
 
 tr.header {
-	background-color: aqua;;
+	background-color: #ffff99;;
 	font-size: 18;
+	align-content: center;
 }
 
 tr.data {
 	background-color: white;
+	font-size: 26;
+
+}
+
+td.head {
+	align-content: cneter;
+	font-size: 26;
+}
+
+input {
+	font-weight: bold;
+	font-size: 26;
+	border-style: none;
+	border-style: solid;
 }

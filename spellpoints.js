@@ -9,7 +9,10 @@ var totalCost = 0;
 var remaining = 0;
 var castable;
 var recovery = 0;
+var points = 0;
 var flagRecovery = false;
+var flagAddPoints = false;
+var addedPoints = 0;
 
 // string formatting function, aliased to string.f
 String.prototype.format = String.prototype.f = function() {
@@ -30,6 +33,7 @@ function arcaneRecovery() {
     } else {
         remaining += recover;
     }
+    genTable(remaining);
     document.getElementById("remaining").innerHTML = remaining;
     return remaining;
 }
@@ -73,6 +77,7 @@ function getMaxPoints() {
     document.getElementById("casting").innerHTML = totalCost;
     var index = document.getElementById("casterLevel").selectedIndex;
     max = Number(pointsPerLevel[index]);
+    remaining = max;
     document.getElementById("max").innerHTML = max;
     document.getElementById("remaining").innerHTML = max;
     return max;
@@ -80,15 +85,20 @@ function getMaxPoints() {
 
 // recalculate spell points after casting a spell
 function getSpellCost(spell) {
-    spell = Number(spell);
+    spellCost = Number(spell);
     // check if the spell is castable
-    flagCastable(spell);
+    flagCastable(spellCost);
     if (castable) {
-        totalCost += spell;
+        totalCost += spellCost;
         // inject recovery points if arcane recovery button clicked
         if (flagRecovery) {
-            remaining = recovery - spell;
-            recovery -= spell;
+            remaining = recovery - spellCost;
+            recovery -= spellCost;
+        } else if (flagAddPoints) {
+            remaining += addedPoints;
+            totalCost -= addedPoints;
+            max += addedPoints;
+            flagAddPoints = false;
         } else {
             remaining = Number(max) - totalCost;
         }
@@ -99,16 +109,31 @@ function getSpellCost(spell) {
     }
 }
 
+genTable(getMaxPoints());
+
+// perform casting upon clicking a spell level
+document.getElementsByClassName("spellLevel").onclick = function () {
+    getSpellCost(this.value);
+};
+
 // perform arcane recovery during a short rest
 document.getElementById("recovery").onclick = function(){
     recovery = arcaneRecovery();
     flagRecovery = true;
 };
 
+// add spell points manually, but broken in Firefox
+document.getElementById("addPoints").onkeypress = function(event){
+    if (event.key == "Enter") {
+    addedPoints = Number(document.getElementById("addPoints").value);
+    flagAddPoints = true;
+    getSpellCost(addedPoints);
+    }
+};
+
 // set/reset spell point calculations according to caster level
 document.getElementById("casterLevel").onclick = function(){
     // reset calculations
     genTable(getMaxPoints());
-    remaining = max;
     totalCost = 0;
 };

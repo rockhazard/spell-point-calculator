@@ -1,13 +1,16 @@
+<!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8" />
 <title>Spell Points Calculator</title>
 <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 	<body>
-		<h1 id="description">Spell Points Calculator</h1>    
+<!-- 		<h1 id="description">Spell Points Calculator</h1> -->
+	<img id="imageHeader" alt="spellpoint_banner.png" src="images/spellpoint_banner.png">
 		<form name="spellPoints">
 			<div id="caster" class="level">
-				<h3>Please select caster level:</h3>
+				<h3>Caster level:</h3>
 				<select id="casterLevel" size="1">
 					<option>Level 0</option>
 					<option>Level 1</option>
@@ -36,17 +39,17 @@
 		<div id="remainCalc">
 			<h3>Cast a Spell:</h3>
 			<p>Cast a spell by clicking its level.</p>
-			<table cellpadding="4">
+			<table cellpadding="2" cellspacing="2" class="spells" >
 			<tr id="levelHeader" class="header">
-				<td><button id="spellLevel" title="2 Spell Points" onclick="getSpellCost(this.value)" value="2" type="button">Level 1</button></td>
-				<td><button id="spellLevel" title="3 Spell Points" onclick="getSpellCost(this.value)" value="3" type="button">Level 2</button></td>
-				<td><button id="spellLevel" title="5 Spell Points" onclick="getSpellCost(this.value)" value="5" type="button">Level 3</button></td>
-				<td><button id="spellLevel" title="6 Spell Points" onclick="getSpellCost(this.value)" value="6" type="button">Level 4</button></td>
-				<td><button id="spellLevel" title="7 Spell Points" onclick="getSpellCost(this.value)" value="7" type="button">Level 5</button></td>
-				<td><button id="spellLevel" title="9 Spell Points" onclick="getSpellCost(this.value)" value="9" type="button">Level 6</button></td>
-				<td><button id="spellLevel" title="10 Spell Points" onclick="getSpellCost(this.value)" value="10" type="button">Level 7</button></td>
-				<td><button id="spellLevel" title="11 Spell Points" onclick="getSpellCost(this.value)" value="11" type="button">Level 8</button></td>
-				<td><button id="spellLevel" title="13 Spell Points" onclick="getSpellCost(this.value)" value="13" type="button">Level 9</button></td>
+				<td class="head" align="center" ><button id="spellLevel" title="2 Spell Points" onclick="getSpellCost(this.value)" value="2" type="button">Level 1</button></td>
+				<td class="head" align="center" ><button id="spellLevel" title="3 Spell Points" onclick="getSpellCost(this.value)" value="3" type="button">Level 2</button></td>
+				<td class="head" align="center" ><button id="spellLevel" title="5 Spell Points" onclick="getSpellCost(this.value)" value="5" type="button">Level 3</button></td>
+				<td class="head" align="center" ><button id="spellLevel" title="6 Spell Points" onclick="getSpellCost(this.value)" value="6" type="button">Level 4</button></td>
+				<td class="head" align="center" ><button id="spellLevel" title="7 Spell Points" onclick="getSpellCost(this.value)" value="7" type="button">Level 5</button></td>
+				<td class="head" align="center" ><button id="spellLevel" title="9 Spell Points" onclick="getSpellCost(this.value)" value="9" type="button">Level 6</button></td>
+				<td class="head" align="center" ><button id="spellLevel" title="10 Spell Points" onclick="getSpellCost(this.value)" value="10" type="button">Level 7</button></td>
+				<td class="head" align="center" ><button id="spellLevel" title="11 Spell Points" onclick="getSpellCost(this.value)" value="11" type="button">Level 8</button></td>
+				<td class="head" align="center" ><button id="spellLevel" title="13 Spell Points" onclick="getSpellCost(this.value)" value="13" type="button">Level 9</button></td>
 			</tr>
 			<tr id="castingData" class="data">
 				<td id="Level1Castings">0</td>
@@ -77,8 +80,13 @@
 			</table>
 		</div>
 		<p>
-		<button id="recovery">Arcane Recovery!</button>
+		<button id="recovery" type="button">Arcane Recovery!</button>
 		</p>
-	    <script src="spellpoints.js"></script>
+
+<!-- 		<p>
+			<button id="addPoints" title="addPoints" value="2" type="button">Add 2 Points</button>
+ -->		</p>
+			<input type="text" id="addPoints" placeholder="Add spell points here.">
+		    <script type="text/javascript" src="spellpoints.js"></script>
 	</body>
 </html>
