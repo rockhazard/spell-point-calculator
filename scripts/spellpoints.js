@@ -117,8 +117,40 @@ function getSpellCost(spell) {
 
 genTable(getMaxPoints());
 
-// perform casting upon clicking a spell level; not yet implemented
-document.getElementsByClassName("spellLevel").onclick = function () {
+// perform casting when clicking a spell level
+document.getElementById("spellLevel1").onclick = function () {
+    getSpellCost(this.value);
+};
+
+document.getElementById("spellLevel2").onclick = function () {
+    getSpellCost(this.value);
+};
+
+document.getElementById("spellLevel3").onclick = function () {
+    getSpellCost(this.value);
+};
+
+document.getElementById("spellLevel4").onclick = function () {
+    getSpellCost(this.value);
+};
+
+document.getElementById("spellLevel5").onclick = function () {
+    getSpellCost(this.value);
+};
+
+document.getElementById("spellLevel6").onclick = function () {
+    getSpellCost(this.value);
+};
+
+document.getElementById("spellLevel7").onclick = function () {
+    getSpellCost(this.value);
+};
+
+document.getElementById("spellLevel8").onclick = function () {
+    getSpellCost(this.value);
+};
+
+document.getElementById("spellLevel9").onclick = function () {
     getSpellCost(this.value);
 };
 
