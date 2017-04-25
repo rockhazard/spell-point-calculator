@@ -40,23 +40,29 @@ function arcaneRecovery() {
 
 // calculates max remaining castings for each given spell level
 function genTable(base) {
-    var $1Remain = Math.floor(base / 2);
-    var $2Remain = Math.floor(base / 3);
-    var $3Remain = Math.floor(base / 5);
-    var $4Remain = Math.floor(base / 6);
-    var $5Remain = Math.floor(base / 7);
-    var $6Remain = Math.floor(base / 9);
-    var $7Remain = Math.floor(base / 10);
-    var $8Remain = Math.floor(base / 11);
-    var $9Remain = Math.floor(base / 13);
+    var $1Castings = Math.floor(base / 2);
+    var $2Castings = Math.floor(base / 3);
+    var $3Castings = Math.floor(base / 5);
+    var $4Castings = Math.floor(base / 6);
+    var $5Castings = Math.floor(base / 7);
+    var $6Castings = Math.floor(base / 9);
+    var $7Castings = Math.floor(base / 10);
+    var $8Castings = Math.floor(base / 11);
+    var $9Castings = Math.floor(base / 13);
 
-    var remainder = [ $1Remain, $2Remain, $3Remain, $4Remain, $5Remain, 
-        $6Remain, $7Remain, $8Remain, $9Remain ];
+    var remainder = [ $1Castings, $2Castings, $3Castings, $4Castings, $5Castings, 
+        $6Castings, $7Castings, $8Castings, $9Castings ];
 
-    // fill table with remaining castings per level
+    // fill table data with remaining castings per level
     for (var i = 0; i < remainder.length; i++) {
-        document.getElementById("Level{0}Castings".f(i + 1)).innerHTML =
-            remainder[i];
+        var casting = document.getElementById("Level{0}Castings".f(i + 1));
+        casting.innerHTML = remainder[i];
+        // color castings red if no castings remain
+        if (remainder[i] < 1) {
+            casting.style.color = "red";
+        } else {
+            casting.style.color = "black";
+        }
     }
 
     return remainder;
@@ -111,7 +117,7 @@ function getSpellCost(spell) {
 
 genTable(getMaxPoints());
 
-// perform casting upon clicking a spell level
+// perform casting upon clicking a spell level; not yet implemented
 document.getElementsByClassName("spellLevel").onclick = function () {
     getSpellCost(this.value);
 };

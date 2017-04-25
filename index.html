@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8" />
 <title>Spell Points Calculator</title>
-<link rel="stylesheet" type="text/css" href="main.css">
+<link rel="stylesheet" type="text/css" href="scripts/main.css">
 </head>
 	<body>
 <!-- 		<h1 id="description">Spell Points Calculator</h1> -->
-	<img id="imageHeader" alt="spellpoint_banner.png" src="images/spellpoint_banner.png">
+	<img class="imageHeader" alt="spellpoint_banner.png" src="images/spellpoint_banner.jpg">
 		<form name="spellPoints">
 			<div id="caster" class="level">
 				<h3>Caster level:</h3>
-				<select id="casterLevel" size="1">
+				<select id="casterLevel" size="1" class="data">
 					<option>Level 0</option>
 					<option>Level 1</option>
 					<option>Level 2</option>
@@ -38,18 +38,18 @@
 		</form>
 		<div id="remainCalc">
 			<h3>Cast a Spell:</h3>
-			<p>Cast a spell by clicking its level.</p>
+			<p>Click a level to cast a spell.</p>
 			<table cellpadding="2" cellspacing="2" class="spells" >
 			<tr id="levelHeader" class="header">
-				<td class="head" align="center" ><button id="spellLevel" title="2 Spell Points" onclick="getSpellCost(this.value)" value="2" type="button">Level 1</button></td>
-				<td class="head" align="center" ><button id="spellLevel" title="3 Spell Points" onclick="getSpellCost(this.value)" value="3" type="button">Level 2</button></td>
-				<td class="head" align="center" ><button id="spellLevel" title="5 Spell Points" onclick="getSpellCost(this.value)" value="5" type="button">Level 3</button></td>
-				<td class="head" align="center" ><button id="spellLevel" title="6 Spell Points" onclick="getSpellCost(this.value)" value="6" type="button">Level 4</button></td>
-				<td class="head" align="center" ><button id="spellLevel" title="7 Spell Points" onclick="getSpellCost(this.value)" value="7" type="button">Level 5</button></td>
-				<td class="head" align="center" ><button id="spellLevel" title="9 Spell Points" onclick="getSpellCost(this.value)" value="9" type="button">Level 6</button></td>
-				<td class="head" align="center" ><button id="spellLevel" title="10 Spell Points" onclick="getSpellCost(this.value)" value="10" type="button">Level 7</button></td>
-				<td class="head" align="center" ><button id="spellLevel" title="11 Spell Points" onclick="getSpellCost(this.value)" value="11" type="button">Level 8</button></td>
-				<td class="head" align="center" ><button id="spellLevel" title="13 Spell Points" onclick="getSpellCost(this.value)" value="13" type="button">Level 9</button></td>
+				<th class="head" align="center" ><button id="spellLevel" title="2 Spell Points" onclick="getSpellCost(this.value)" value="2" type="button">Level 1</button></th>
+				<th class="head" align="center" ><button id="spellLevel" title="3 Spell Points" onclick="getSpellCost(this.value)" value="3" type="button">Level 2</button></th>
+				<th class="head" align="center" ><button id="spellLevel" title="5 Spell Points" onclick="getSpellCost(this.value)" value="5" type="button">Level 3</button></th>
+				<th class="head" align="center" ><button id="spellLevel" title="6 Spell Points" onclick="getSpellCost(this.value)" value="6" type="button">Level 4</button></th>
+				<th class="head" align="center" ><button id="spellLevel" title="7 Spell Points" onclick="getSpellCost(this.value)" value="7" type="button">Level 5</button></th>
+				<th class="head" align="center" ><button id="spellLevel" title="9 Spell Points" onclick="getSpellCost(this.value)" value="9" type="button">Level 6</button></th>
+				<th class="head" align="center" ><button id="spellLevel" title="10 Spell Points" onclick="getSpellCost(this.value)" value="10" type="button">Level 7</button></th>
+				<th class="head" align="center" ><button id="spellLevel" title="11 Spell Points" onclick="getSpellCost(this.value)" value="11" type="button">Level 8</button></th>
+				<th class="head" align="center" ><button id="spellLevel" title="13 Spell Points" onclick="getSpellCost(this.value)" value="13" type="button">Level 9</button></th>
 			</tr>
 			<tr id="castingData" class="data">
 				<td id="Level1Castings">0</td>
@@ -68,9 +68,9 @@
 		<div>
 			<table id="statusTable" cellpadding="4">
 				<tr id="statusHeader" class="header">
-					<td id="statusHeader1">Max Points</td>
-					<td id="statusHeader2">Used Points</td>
-					<td id="statusHeader3">Remaining Points</td>
+					<th id="statusHeader1" class="head">Max Points</th>
+					<th id="statusHeader2" class="head">Used Points</th>
+					<th id="statusHeader3" class="head">Remaining Points</th>
 				</tr>
 				<tr id="statusData" class="data">
 					<td id="max">0</td>
@@ -82,11 +82,7 @@
 		<p>
 		<button id="recovery" type="button">Arcane Recovery!</button>
 		</p>
-
-<!-- 		<p>
-			<button id="addPoints" title="addPoints" value="2" type="button">Add 2 Points</button>
- -->		</p>
 			<input type="text" id="addPoints" placeholder="Add spell points here.">
-		    <script type="text/javascript" src="spellpoints.js"></script>
+		    <script type="text/javascript" src="scripts/spellpoints.js"></script>
 	</body>
 </html>

@@ -1,25 +1,26 @@
 body {
 	background-color: black;
-	font-family: monospace;
-	font-size: 22;
+	font-family: Loma, sans;
+	font-size: 100%;
 }
 
-h1 {
+/*h1 {
 	color: white;
-}
+}*/
 
 h3 {
 	color: #ffff99;
+	font-size: 1.5em;
 }
 
 p {
 	color: white;
-	font-size: 22;
 	width: 640px;
+	font-size: 1em;
 }
 
-p.data {
-	font-size: 26;
+.data {
+	font-size: 1.5em;
 }
 
 select {
@@ -32,7 +33,7 @@ select {
 
 button {
 	font-weight: bold;
-	font-size: 18;
+	font-size: .8em;
 	border-style: dashed;
 	border-color: black;	
 	background-color: #ffff99;
@@ -41,7 +42,6 @@ button {
 
 table {
 	font-weight: bold;
-	font-size: 26;
 	/*border-collapse: collapse;*/
 	border-color: #ffff99;
 }
@@ -49,31 +49,28 @@ table {
 table.spells {
 	width: 640px;
 	font-weight: bold;
-	font-size: 26;
 	/*border-collapse: collapse;*/
 	border-color: #ffff99;
 }
 
 tr.header {
 	background-color: #ffff99;;
-	font-size: 18;
+	font-size: 1em;
 	align-content: center;
 }
 
 tr.data {
 	background-color: white;
-	font-size: 26;
-
 }
 
-td.head {
+th.head {
 	align-content: cneter;
-	font-size: 26;
+	font-size: 1em;
 }
 
 input {
 	font-weight: bold;
-	font-size: 26;
+	font-size: 1.5em;
 	border-style: none;
 	border-style: solid;
 }
