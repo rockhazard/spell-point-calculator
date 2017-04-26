@@ -215,50 +215,27 @@ function castSpell(spell) {
     }
 }
 
+// ensure table resets on reset of max points
 genTable(getMaxPoints());
 
 // events
 
 // perform casting when clicking a spell level
-document.getElementById("spellLevel1").onclick = function () {
+function clickSpell(elementId) {
+    document.getElementById(elementId).onclick = function () {
     castSpell(this.value);
-};
+    };
+}
 
-document.getElementById("spellLevel2").onclick = function () {
-    castSpell(this.value);
-};
-
-document.getElementById("spellLevel3").onclick = function () {
-    castSpell(this.value);
-};
-
-document.getElementById("spellLevel4").onclick = function () {
-    castSpell(this.value);
-};
-
-document.getElementById("spellLevel5").onclick = function () {
-    castSpell(this.value);
-};
-
-document.getElementById("spellLevel6").onclick = function () {
-    castSpell(this.value);
-    castOnce = true;
-};
-
-document.getElementById("spellLevel7").onclick = function () {
-    castSpell(this.value);
-    castOnce = true;
-};
-
-document.getElementById("spellLevel8").onclick = function () {
-    castSpell(this.value);
-    castOnce = true;
-};
-
-document.getElementById("spellLevel9").onclick = function () {
-    castSpell(this.value);
-    castOnce = true;
-};
+clickSpell("spellLevel1");
+clickSpell("spellLevel2");
+clickSpell("spellLevel3");
+clickSpell("spellLevel4");
+clickSpell("spellLevel5");
+clickSpell("spellLevel6");
+clickSpell("spellLevel7");
+clickSpell("spellLevel8");
+clickSpell("spellLevel9");
 
 // perform arcane recovery during a short rest
 document.getElementById("recovery").onclick = function(){
