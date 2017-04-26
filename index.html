@@ -6,12 +6,11 @@
 <link rel="stylesheet" type="text/css" href="scripts/main.css">
 </head>
 	<body>
+	<div id="caster" class="level">
 	<img class="imageHeader" alt="Spell Point Calculator" src="images/spellpoint_banner.jpg">
 		<form name="spellPoints">
-			<div id="caster" class="level">
 				<h3>Caster level:</h3>
 				<select id="casterLevel" size="1" class="data">
-					<option>Level 0</option>
 					<option>Level 1</option>
 					<option>Level 2</option>
 					<option>Level 3</option>
@@ -33,6 +32,19 @@
 					<option>Level 19</option>
 					<option>Level 20</option>
 				</select>
+			<div id="school" class="level">
+				<h3>Caster School:</h3>
+				<select id="casterSchool" size="1" class="data">
+					<option>Abjuration</option>
+					<option>Conjuration</option>
+					<option>Divination</option>
+					<option>Enchantment</option>
+					<option>Evocation</option>
+					<option>Illusion</option>
+					<option>Necromancy</option>
+					<option>Transmutation</option>
+				</select>
+				<p id="casterTitle"></p>
 			</div>
 		</form>
 		<div id="remainCalc">
@@ -83,5 +95,6 @@
 		</p>
 			<input type="text" id="addPoints" placeholder="Add spell points here.">
 		    <script type="text/javascript" src="scripts/spellpoints.js"></script>
+		</div>
 	</body>
 </html>

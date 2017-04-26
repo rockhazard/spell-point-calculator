@@ -4,6 +4,33 @@ body {
 	font-size: 100%;
 }
 
+#caster {
+	position: relative;
+	left: 0px;
+}
+
+#school {
+	position: absolute;
+	left: 220px;
+	top: 169px;
+}
+
+#casterTitle {
+	text-align: left;
+	width: 200px;
+	font-size: 1.4em;
+	color: red;
+	position: absolute;
+	left: 232px;
+	top: 50px;
+}
+
+/*#title {
+	position: absolute;
+	left: 320px;
+	top:;
+}*/
+
 /*h1 {
 	color: white;
 }*/
@@ -21,6 +48,7 @@ p {
 
 .data {
 	font-size: 1.5em;
+	text-align: center;
 }
 
 select {
