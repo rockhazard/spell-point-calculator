@@ -1,5 +1,9 @@
 // calculate spell points for D&D 5e variant rules (DMG p.288)
 
+var SpellPoints = {}; //prevent global names
+
+SpellPoints.Calc = (function () {
+
 var pointsPerLevel = [ 0, 4, 6, 14, 17, 27, 32, 38, 44, 57, 64, 73, 73, 83, 83, 
     94, 84, 107, 114, 123, 133 ];
 // var castingCost = [ 0, 2, 3, 5, 6, 7, 9, 10, 11, 13 ];
@@ -205,12 +209,15 @@ function castSpell(spell) {
         // post results
         document.getElementById("casting").innerHTML = totalCost;
         document.getElementById("remaining").innerHTML = remaining;
+        // change color of remaining when below half max
         changeColor("remaining", (remaining <= (max / 2)));
         genTable(remaining);
     }
 }
 
 genTable(getMaxPoints());
+
+// events
 
 // perform casting when clicking a spell level
 document.getElementById("spellLevel1").onclick = function () {
@@ -259,12 +266,14 @@ document.getElementById("recovery").onclick = function(){
     flagRecovery = true;
 };
 
-// add spell points manually, but broken in Firefox
+// add spell points manually
 document.getElementById("addPoints").onkeypress = function(event){
-    if (event.key == "Enter") {
+    if (event.key == "Enter" && Number.isInteger(Number(this.value))) {
     addedPoints = Number(document.getElementById("addPoints").value);
     flagAddPoints = true;
     castSpell(addedPoints);
+    } else {
+        console.warn("addPoints only takes integers!");
     }
 };
 
@@ -280,3 +289,14 @@ document.getElementById("casterLevel").onclick = function(){
 document.getElementById("casterSchool").onclick = function(){
     getCasterTitle();
 };
+
+// make functions available for testing
+return {
+    flagCastable: flagCastable,
+    arcaneRecovery: arcaneRecovery,
+    genTable: genTable,
+    getMaxPoints: getMaxPoints,
+    castSpell: castSpell
+};
+
+}());
