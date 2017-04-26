@@ -113,6 +113,7 @@ function arcaneRecovery() {
     }
     genTable(remaining);
     document.getElementById("remaining").innerHTML = remaining;
+    changeColor("remaining", (remaining <= (max / 2)));
     return remaining;
 }
 
@@ -160,6 +161,7 @@ function getMaxPoints() {
     document.getElementById("max").innerHTML = max;
     document.getElementById("remaining").innerHTML = max;
     changeColor("remaining", (remaining <= (max / 2)));
+    addPoints = 0;
     return max;
 }
 
@@ -192,7 +194,6 @@ function castSpell(spell) {
         if (flagRecovery) {
             remaining = recovery - spellCost;
             recovery -= spellCost;
-            recoveryNotify();
         } else if (flagAddPoints) {
             remaining += addedPoints;
             totalCost -= addedPoints;
