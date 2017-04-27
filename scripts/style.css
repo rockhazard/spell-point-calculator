@@ -1,0 +1,152 @@
+/* works best with css reset: <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
+*/
+
+html {
+	background-color: black;
+	font-family: Loma, sans;
+	font-size: 100%;
+}
+
+#caster {
+	position: relative;
+	left: 0px;
+}
+
+#levelDiv {
+	width: 130px;
+	height: 115px;
+	position: absolute;
+	left: 0px;
+	top: 169px;
+}
+
+#school {
+	width: 222px;
+	height: 115px;
+	position: absolute;
+	left: 155px;
+	top: 169px;
+}
+
+#casterTitle {
+	text-align: left;
+	width: 300px;
+	font-size: 1.2em;
+	color: white;
+	position: absolute;
+	left: 5px;
+	top: 80px;
+}
+
+#status {
+	position: absolute;
+	left: 0px;
+	top: 305px;
+	width: 375px;
+}
+
+#remainCalc {
+	position: absolute;
+	top: 455px;
+}
+
+#schoolImage {
+	width: 250px;
+	height: 250px;
+	position: absolute;
+	left: 235px;
+	top: -1px;
+}
+
+div.info {
+	/*background: #353535;*/
+	background: #545448;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #ffff99;
+	border-radius: 5px;
+	padding: 5px;
+	margin: 10px;
+}
+
+h3 {
+	color: #ffff99;
+	font-size: 1.4em;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+p {
+	color: white;
+	width: 640px;
+	font-size: 1em;
+	margin-top: 2px;
+}
+
+.data {
+	font-size: 1.5em;
+	text-align: center;
+}
+
+select {
+	font-weight: bold;
+	font-size: 1.4em;
+	border: none;
+	background-color: white;
+}
+
+button {
+	font-weight: bold;
+	font-size: .9em;
+	border-style: dashed;
+	border-color: black;	
+	background-color: #ffff99;
+	margin: auto;
+}
+
+button:hover {
+	background-color: #a8a865;
+}
+
+table {
+	font-weight: bold;
+	/*border-collapse: collapse;*/
+	border-color: black;
+	border-width: 1px;
+	align-content: center;
+}
+
+table.spells {
+	width: 640px;
+	font-weight: bold;
+	/*border-collapse: collapse;*/
+	border-color: black;
+	border-width: 1px;
+}
+
+tr.header {
+	background-color: #ffff99;;
+	font-size: 1em;
+	align-content: center;
+}
+
+tr.data {
+	background-color: white;
+}
+
+td.head {
+	align-content: cneter;
+	font-size: 1em;
+	font-weight: bold;
+}
+
+#statusTable {
+	width: 375px;
+}
+
+input {
+	font-weight: bold;
+	font-size: 1.2em;
+	border-style: none;
+	border-style: solid;
+}

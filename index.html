@@ -3,14 +3,16 @@
 <head>
 <meta charset="UTF-8" />
 <title>Spell Points Calculator</title>
-<link rel="stylesheet" type="text/css" href="scripts/main.css">
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
+<link rel="stylesheet" type="text/css" href="scripts/style.css">
 </head>
 	<body>
 	<div id="caster" class="level">
 	<img class="imageHeader" alt="Spell Point Calculator" src="images/spellpoint_banner.jpg">
 		<form name="spellPoints">
-				<h3>Caster level:</h3>
-				<select id="casterLevel" size="1" class="data">
+			<div id="levelDiv" class="info">
+				<h3 id="levelH3" >Caster level</h3>
+				<select id="casterLevel" size="1">
 					<option>Level 1</option>
 					<option>Level 2</option>
 					<option>Level 3</option>
@@ -32,9 +34,10 @@
 					<option>Level 19</option>
 					<option>Level 20</option>
 				</select>
-			<div id="school" class="level">
-				<h3>Caster School:</h3>
-				<select id="casterSchool" size="1" class="data">
+			</div>
+			<div id="school" class="info">
+				<h3 id="schoolH3" >Caster School</h3>
+				<select id="casterSchool" size="1">
 					<option>Abjuration</option>
 					<option>Conjuration</option>
 					<option>Divination</option>
@@ -44,23 +47,24 @@
 					<option>Necromancy</option>
 					<option>Transmutation</option>
 				</select>
+				<div id="schoolImage"></div>
 				<p id="casterTitle"></p>
 			</div>
 		</form>
-		<div id="remainCalc">
-			<h3>Cast a Spell:</h3>
-			<p>Click a level to cast a spell.</p>
-			<table cellpadding="2" cellspacing="2" class="spells" >
+		<div id="remainCalc" class="info">
+			<h3>Cast a Spell</h3>
+			<p>Available castings for each level are shown below. Click a level to cast a spell.</p>
+			<table cellpadding="0" cellspacing="0" border="1" class="spells" >
 			<tr id="levelHeader" class="header">
-				<th class="head" align="center" ><button id="spellLevel1" title="2 Spell Points" value="2" type="button">Level 1</button></th>
-				<th class="head" align="center" ><button id="spellLevel2" title="3 Spell Points" value="3" type="button">Level 2</button></th>
-				<th class="head" align="center" ><button id="spellLevel3" title="5 Spell Points" value="5" type="button">Level 3</button></th>
-				<th class="head" align="center" ><button id="spellLevel4" title="6 Spell Points" value="6" type="button">Level 4</button></th>
-				<th class="head" align="center" ><button id="spellLevel5" title="7 Spell Points" value="7" type="button">Level 5</button></th>
-				<th class="head" align="center" ><button id="spellLevel6" title="9 Spell Points" value="9" type="button">Level 6</button></th>
-				<th class="head" align="center" ><button id="spellLevel7" title="10 Spell Points" value="10" type="button">Level 7</button></th>
-				<th class="head" align="center" ><button id="spellLevel8" title="11 Spell Points" value="11" type="button">Level 8</button></th>
-				<th class="head" align="center" ><button id="spellLevel9" title="13 Spell Points" value="13" type="button">Level 9</button></th>
+				<td class="head" align="center"><button id="spellLevel1" title="2 Spell Points" value="2" type="button">Level 1</button></td>
+				<td class="head" align="center"><button id="spellLevel2" title="3 Spell Points" value="3" type="button">Level 2</button></td>
+				<td class="head" align="center"><button id="spellLevel3" title="5 Spell Points" value="5" type="button">Level 3</button></td>
+				<td class="head" align="center"><button id="spellLevel4" title="6 Spell Points" value="6" type="button">Level 4</button></td>
+				<td class="head" align="center"><button id="spellLevel5" title="7 Spell Points" value="7" type="button">Level 5</button></td>
+				<td class="head" align="center"><button id="spellLevel6" title="9 Spell Points" value="9" type="button">Level 6</button></td>
+				<td class="head" align="center"><button id="spellLevel7" title="10 Spell Points" value="10" type="button">Level 7</button></td>
+				<td class="head" align="center"><button id="spellLevel8" title="11 Spell Points" value="11" type="button">Level 8</button></td>
+				<td class="head" align="center"><button id="spellLevel9" title="13 Spell Points" value="13" type="button">Level 9</button></td>
 			</tr>
 			<tr id="castingData" class="data">
 				<td id="Level1Castings">0</td>
@@ -75,13 +79,12 @@
 			</tr>
 			</table>
 		</div>
-		<br>
-		<div>
-			<table id="statusTable" cellpadding="4">
+		<div id="status"  class="info">
+			<table id="statusTable" cellpadding="4" border="1">
 				<tr id="statusHeader" class="header">
-					<th id="statusHeader1" class="head">Max Points</th>
-					<th id="statusHeader2" class="head">Used Points</th>
-					<th id="statusHeader3" class="head">Remaining Points</th>
+					<td id="statusHeader1" align="center" class="head">Max Points</td>
+					<td id="statusHeader2" align="center" class="head">Used Points</td>
+					<td id="statusHeader3" align="center" class="head">Remaining Points</td>
 				</tr>
 				<tr id="statusData" class="data">
 					<td id="max">0</td>
@@ -89,12 +92,12 @@
 					<td id="remaining">0</td>
 				</tr>
 			</table>
-		</div>
 		<p>
 		<button id="recovery" type="button">Arcane Recovery!</button>
 		</p>
 			<input type="text" id="addPoints" placeholder="Add spell points here.">
-		    <script type="text/javascript" src="scripts/spellpoints.js"></script>
 		</div>
+	</div>
+    <script type="text/javascript" src="scripts/spellpoints.js"></script>
 	</body>
 </html>

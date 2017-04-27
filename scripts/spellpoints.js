@@ -75,6 +75,17 @@ var casterTitles = [
     ]
 ];
 
+var schoolPics = [
+    "abjuration.jpg",
+    "conjuration.jpg",
+    "divination.jpg",
+    "enchantment.jpg",
+    "evocation.jpg",
+    "illusion.jpg",
+    "necromancy.jpg",
+    "transmutation.jpg"
+];
+
 var max = 0;
 var totalCost = 0;
 var remaining = 0;
@@ -184,7 +195,9 @@ function getCasterTitle() {
     } else if (level === 20) {
         title = casterTitles[school][4];
     }
-    document.getElementById("casterTitle").innerHTML = title;
+    document.getElementById("casterTitle").innerHTML = "Title: " + title;
+    document.getElementById("schoolImage").innerHTML = "<img src=\"backups/" + 
+        schoolPics[school] + "\">";
 }
 
 // recalculate spell points after casting a spell
