@@ -75,6 +75,17 @@ var casterTitles = [
     ]
 ];
 
+var schoolPics = [
+    "abjuration.jpg",
+    "conjuration.jpg",
+    "divination.jpg",
+    "enchantment.jpg",
+    "evocation.jpg",
+    "illusion.jpg",
+    "necromancy.jpg",
+    "transmutation.jpg"
+];
+
 var max = 0;
 var totalCost = 0;
 var remaining = 0;
