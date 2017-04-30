@@ -234,7 +234,9 @@ function castSpell(spell) {
         if (flagRecovery) {
             remaining = recovery - spellCost;
             recovery -= spellCost;
+            flagRecovery = false;
         } else if (flagAddPoints) {
+            recovery = 0;
             remaining += addedPoints;
             totalCost -= addedPoints;
             max += addedPoints;
