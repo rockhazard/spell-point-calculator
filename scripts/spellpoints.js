@@ -209,13 +209,13 @@ function setCasterTitle() {
     var title = "";
     if (level === 1) {
         title = casterTitles[school][0];
-    } else if (level > 1 && level < 9) {
+    } else if (level > 1 && level < 6) {
         title = casterTitles[school][1];
-    } else if (level > 8 && level < 15) {
+    } else if (level > 5 && level < 14) {
         title = casterTitles[school][2];
-    } else if (level > 14 && level < 20) {
+    } else if (level > 13 && level < 18) {
         title = casterTitles[school][3];
-    } else if (level === 20) {
+    } else if (level > 17) {
         title = casterTitles[school][4];
     }
     document.getElementById("casterTitle").innerHTML = title;
