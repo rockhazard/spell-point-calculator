@@ -7,10 +7,10 @@
 <link rel="stylesheet" type="text/css" href="scripts/style.css">
 </head>
 	<body>
-	<div id="caster" class="level">
-	<img class="imageHeader" alt="Spell Point Calculator" src="images/spellpoint_banner.jpg">
+	<div id="caster">
+	<img id="imageHeader" alt="Spell Point Calculator" src="images/spellpoint_banner.jpg">
 		<form name="spellPoints">
-			<div id="levelDiv" class="info">
+			<div id="level" class="info">
 				<h3 id="levelH3" >Caster level</h3>
 				<select id="casterLevel" size="1">
 					<option>Level 1</option>
@@ -52,9 +52,9 @@
 			</div>
 		</form>
 		<div id="remainCalc" class="info">
-			<h3>Cast a Spell</h3>
+			<h3>Cast Spells</h3>
 			<p>Available castings for each level are shown below. Click a level to cast a spell.</p>
-			<table cellpadding="0" cellspacing="0" border="1" class="spells" >
+			<table class="spells" >
 			<tr id="levelHeader" class="header">
 				<td class="head" align="center"><button id="spellLevel1" title="2 Spell Points" value="2" type="button">Level 1</button></td>
 				<td class="head" align="center"><button id="spellLevel2" title="3 Spell Points" value="3" type="button">Level 2</button></td>
@@ -78,9 +78,10 @@
 				<td id="Level9Castings">0</td>
 			</tr>
 			</table>
+			<div id="warning"></div>
 		</div>
 		<div id="status"  class="info">
-			<table id="statusTable" cellpadding="4" border="1">
+			<table id="statusTable" >
 				<tr id="statusHeader" class="header">
 					<td id="statusHeader1" align="center" class="head">Max Points</td>
 					<td id="statusHeader2" align="center" class="head">Used Points</td>
@@ -92,11 +93,10 @@
 					<td id="remaining">0</td>
 				</tr>
 			</table>
-		<p>
 		<button id="recovery" type="button">Arcane Recovery!</button>
-		</p>
 			<input type="text" id="addPoints" placeholder="Add spell points here.">
 		</div>
+		<div id="links" class="info"><a href="https://rockhazard.github.io/index.html">rockhazard home</div>
 	</div>
     <script type="text/javascript" src="scripts/spellpoints.js"></script>
 	</body>

@@ -95,7 +95,8 @@ var points = 0;
 var flagRecovery = false;
 var flagAddPoints = false;
 var addedPoints = 0;
-var castOnce = false;
+var limitFlag = [];
+var spellId = 0;
 
 // string formatting function, aliased to string.f
 String.prototype.format = String.prototype.f = function() {
@@ -132,6 +133,18 @@ function arcaneRecovery() {
     return remaining;
 }
 
+// enforces rule that spell point users only have one casting at levels 6 - 9
+function castingLimit(cost) {
+    if (limitFlag.indexOf(String(cost)) > -1){
+        return 0;
+    } else 
+    if (remaining >= cost) {
+        return cost;
+    } else {
+        return 0;
+    }
+}
+
 // calculates max remaining castings for each given spell level
 function genTable(base) {
     var $1Castings = Math.floor(base / 2);
@@ -139,13 +152,15 @@ function genTable(base) {
     var $3Castings = Math.floor(base / 5);
     var $4Castings = Math.floor(base / 6);
     var $5Castings = Math.floor(base / 7);
-    var $6Castings = Math.floor(base / 9);
-    var $7Castings = Math.floor(base / 10);
-    var $8Castings = Math.floor(base / 11);
-    var $9Castings = Math.floor(base / 13);
+    // Levels 6-0 only allow one casting per long rest
+    var $6Castings = Math.floor(castingLimit(9) / 9);
+    var $7Castings = Math.floor(castingLimit(10) / 10);
+    var $8Castings = Math.floor(castingLimit(11) / 11);
+    var $9Castings = Math.floor(castingLimit(13) / 13);
 
-    var remainder = [ $1Castings, $2Castings, $3Castings, $4Castings, $5Castings, 
-        $6Castings, $7Castings, $8Castings, $9Castings ];
+    var remainder = [ $1Castings, $2Castings, $3Castings, $4Castings, 
+                    $5Castings, $6Castings, $7Castings, $8Castings, 
+                    $9Castings ];
 
     // fill table data with remaining castings per level
     for (var i = 0; i < remainder.length; i++) {
@@ -159,6 +174,10 @@ function genTable(base) {
 
 // prevents calculator from casting spells with too few points remaining
 function flagCastable(points) {
+    // bug: won't let 6-9 spells cast once, because index included before cast
+    // if (limitFlag.indexOf(String(points)) > -1) {
+    //     castable = false;
+    // } else 
     if (points <= remaining) {
         castable = true;
     } else {
@@ -166,21 +185,25 @@ function flagCastable(points) {
     }
 }
 
+// resets calculator to maximum spell points for selected level and zeros/resets
+// casting-dependent variables
 function getMaxPoints() {
-    castable = true;
-    totalCost = 0;
+    castable = true, totalCost = 0, recovery = 0, addPoints = 0;
     document.getElementById("casting").innerHTML = totalCost;
     var index = document.getElementById("casterLevel").selectedIndex;
     max = Number(pointsPerLevel[index + 1]);
     remaining = max;
     document.getElementById("max").innerHTML = max;
     document.getElementById("remaining").innerHTML = max;
+    document.getElementById("warning").innerHTML = "";
     changeColor("remaining", (remaining <= (max / 2)));
     addPoints = 0;
+    limitFlag = [];
     return max;
 }
 
-function getCasterTitle() {
+// apply school symbol and level title according to level and school selections
+function setCasterTitle() {
     var level = Number(document.getElementById("casterLevel").selectedIndex + 1);
     var school = Number(document.getElementById("casterSchool").selectedIndex);
     var title = "";
@@ -195,7 +218,7 @@ function getCasterTitle() {
     } else if (level === 20) {
         title = casterTitles[school][4];
     }
-    document.getElementById("casterTitle").innerHTML = "Title: " + title;
+    document.getElementById("casterTitle").innerHTML = title;
     document.getElementById("schoolImage").innerHTML = "<img src=\"backups/" + 
         schoolPics[school] + "\">";
 }
@@ -217,7 +240,7 @@ function castSpell(spell) {
             max += addedPoints;
             flagAddPoints = false;
         } else {
-            remaining = Number(max) - totalCost;
+            remaining = (max + recovery + addPoints) - totalCost;
         }
         // post results
         document.getElementById("casting").innerHTML = totalCost;
@@ -225,18 +248,28 @@ function castSpell(spell) {
         // change color of remaining when below half max
         changeColor("remaining", (remaining <= (max / 2)));
         genTable(remaining);
+        document.getElementById("warning").innerHTML = "";
+    } else if (flagAddPoints === false) {
+        document.getElementById("warning").innerHTML = "<p class=\"warning\">Not enough points for that spell!</p>";
     }
+    spellId = 0;
 }
 
-// ensure table resets on reset of max points
+// ensure table resets on reset of max points and school symbol is loaded
 genTable(getMaxPoints());
+setCasterTitle();
 
 // events
 
 // perform casting when clicking a spell level
 function clickSpell(elementId) {
     document.getElementById(elementId).onclick = function () {
-    castSpell(this.value);
+    spellId = this.value;
+    limitFlag.push(spellId);
+    // if (spellId > 7) {
+    //     limitFlag = true;
+    // }
+    castSpell(spellId);
     };
 }
 
@@ -270,14 +303,14 @@ document.getElementById("addPoints").onkeypress = function(event){
 // set/reset spell point calculations according to caster level
 document.getElementById("casterLevel").onclick = function(){
     // reset calculations and title
-    getCasterTitle();
+    setCasterTitle();
     genTable(getMaxPoints());
     totalCost = 0;
 };
 
 // set caster school and title
 document.getElementById("casterSchool").onclick = function(){
-    getCasterTitle();
+    setCasterTitle();
 };
 
 // make functions available for testing

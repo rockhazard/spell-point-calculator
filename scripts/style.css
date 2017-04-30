@@ -1,4 +1,6 @@
-/* works best with css reset: <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
+/* works best with css reset (for stripping browser render customizations): <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
+spellpoints
+
 */
 
 html {
@@ -7,12 +9,35 @@ html {
 	font-size: 100%;
 }
 
-#caster {
-	position: relative;
-	left: 0px;
+#imageHeader {
+	width: 640px;
 }
 
-#levelDiv {
+#caster {
+	position: relative;
+	height: 1050px;
+	width: 600px;
+	margin: auto;
+}
+
+div.info {
+	background: #545448;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #ffff99;
+	border-radius: 5px;
+	padding: 5px;
+	margin: 5px;
+}
+
+.data {
+	font-size: 1.5em;
+	text-align: center;
+}
+
+/* dropdowns */
+
+#level {
 	width: 130px;
 	height: 115px;
 	position: absolute;
@@ -38,18 +63,6 @@ html {
 	top: 80px;
 }
 
-#status {
-	position: absolute;
-	left: 0px;
-	top: 305px;
-	width: 375px;
-}
-
-#remainCalc {
-	position: absolute;
-	top: 455px;
-}
-
 #schoolImage {
 	width: 250px;
 	height: 250px;
@@ -58,15 +71,59 @@ html {
 	top: -1px;
 }
 
-div.info {
-	/*background: #353535;*/
-	background: #545448;
+/* status */
+
+#status {
+	position: absolute;
+	left: 0px;
+	top: 308px;
+	height: 130px;
+	width: 375px;
+}
+
+#statusTable {
+	width: 375px;
+}
+
+#recovery {
+	margin-top: 5px;
+}
+
+#addPoints {
+	font-weight: bold;
+	font-size: 1em;
+	border-style: none;
+	border-style: solid;
+	margin-top: 1px;
+	margin-bottom: 1px;
+}
+
+/* castings */
+
+#remainCalc {
+	position: absolute;
+	top: 461px;
+	width: 623px;
+}
+
+/* formatting */
+
+.warning {
+	color: red;
 	border-style: solid;
 	border-width: 1px;
-	border-color: #ffff99;
+	border-color: white;
 	border-radius: 5px;
+	background-color: black;
+	font-size: 1em;
+	text-align: center;
+	font-weight: bold;
+	font-style: italic;
+	position: absolute;
+	width: 260px;
+	top: 5px;
+	left: 150px;
 	padding: 5px;
-	margin: 10px;
 }
 
 h3 {
@@ -83,9 +140,8 @@ p {
 	margin-top: 2px;
 }
 
-.data {
-	font-size: 1.5em;
-	text-align: center;
+a {
+    text-decoration: none ;
 }
 
 select {
@@ -101,32 +157,34 @@ button {
 	border-style: dashed;
 	border-color: black;	
 	background-color: #ffff99;
-	margin: auto;
+	margin-top: 1px;
+	margin-bottom: 1px;
 }
 
 button:hover {
 	background-color: #a8a865;
 }
 
+/* tables */
+
 table {
 	font-weight: bold;
 	/*border-collapse: collapse;*/
+	border-style: solid;
 	border-color: black;
 	border-width: 1px;
 	align-content: center;
 }
 
 table.spells {
-	width: 640px;
+	width: 620px;
 	font-weight: bold;
 	/*border-collapse: collapse;*/
-	border-color: black;
-	border-width: 1px;
 }
 
 tr.header {
 	background-color: #ffff99;;
-	font-size: 1em;
+	font-size: .9em;
 	align-content: center;
 }
 
@@ -140,13 +198,7 @@ td.head {
 	font-weight: bold;
 }
 
-#statusTable {
-	width: 375px;
-}
-
-input {
-	font-weight: bold;
-	font-size: 1.2em;
-	border-style: none;
-	border-style: solid;
+#links {
+	position: absolute;
+	bottom: 360px;
 }
