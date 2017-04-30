@@ -219,7 +219,7 @@ function setCasterTitle() {
         title = casterTitles[school][4];
     }
     document.getElementById("casterTitle").innerHTML = title;
-    document.getElementById("schoolImage").innerHTML = "<img src=\"backups/" + 
+    document.getElementById("schoolImage").innerHTML = "<img src=\"images/" + 
         schoolPics[school] + "\">";
 }
 
