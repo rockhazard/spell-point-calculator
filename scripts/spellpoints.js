@@ -12,78 +12,67 @@ var pointsPerLevel = [ 0, 4, 6, 14, 17, 27, 32, 38, 44, 57, 64, 73, 73, 83, 83,
 var casterTitles = [
     Abjuration = [
         "Prestidigitator",
-        "Spell Guard",
-        "Abjuror Savant",
-        "Abjuror",
-        "Abjuror Warden"
+        "Abjurer",
+        "Warden",
+        "Glyph Guard",
+        "Sage of Circles"
     ],
 
     Conjuration = [
         "Prestidigitator",
-        "Spell Caller",
-        "Conjurer Savant",
         "Conjurer",
-        "Arch Conjurer"
+        "Spell Caller",
+        "True Summoner",
+        "Sage of Names"
     ],
 
     Divination = [
         "Prestidigitator",
-        "Seer",
-        "Diviner Savant",
         "Diviner",
-        "Greater Diviner"
+        "Seer",
+        "Mystic",
+        "Sage of Eyes"
     ],
 
     Enchantment = [
         "Prestidigitator",
-        "Spell Guide",
-        "Enchanter Savant",
         "Enchanter",
-        "Arch Enchanter"
+        "Glamor Guide",
+        "Entrancer",
+        "Sage of Charms"
     ],
 
     Evocation = [
         "Prestidigitator",
-        "Channeller",
-        "Evoker Savant",
         "Evoker",
-        "Greater Evoker"
+        "Spell Gyre",
+        "Cataclysm",
+        "Sage of Storms"
     ],
 
     Illusion = [
         "Prestidigitator",
-        "Spell Weaver",
-        "Illusionist Savant",
         "Illusionist",
-        "Greater Illusionist"
+        "Seemling",
+        "Shadow Master",
+        "Sage of Phantoms"
     ],
 
     Necromancy = [
         "Prestidigitator",
-        "Spell Grave",
-        "Necromancer Savant",
         "Necromancer",
-        "Lord Necromancer"
+        "Gravebane",
+        "Hex Lord",
+        "Sage of Reaping"
     ],
 
     Transmutation = [
         "Prestidigitator",
-        "Spell Changer",
-        "Transmuter Savant",
         "Transmuter",
-        "Master Transmuter"
+        "Thaumaturgist",
+        "Metamorph",
+        "Sage of Seasons"
     ]
-];
-
-var schoolPics = [
-    "abjuration.jpg",
-    "conjuration.jpg",
-    "divination.jpg",
-    "enchantment.jpg",
-    "evocation.jpg",
-    "illusion.jpg",
-    "necromancy.jpg",
-    "transmutation.jpg"
 ];
 
 var max = 0;
