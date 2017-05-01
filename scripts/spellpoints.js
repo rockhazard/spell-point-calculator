@@ -4,7 +4,7 @@ var SpellPoints = {}; //prevent global names
 
 SpellPoints.Calc = (function () {
 
-var pointsPerLevel = [ 0, 4, 6, 14, 17, 27, 32, 38, 44, 57, 64, 73, 73, 83, 83, 
+var pointsPerLevel = [ 0, 4, 6, 14, 17, 27, 32, 38, 44, 57, 64, 73, 73, 83, 83,
     94, 84, 107, 114, 123, 133 ];
 // var castingCost = [ 0, 2, 3, 5, 6, 7, 9, 10, 11, 13 ];
 
@@ -137,7 +137,7 @@ function arcaneRecovery() {
 function castingLimit(cost) {
     if (limitFlag.indexOf(String(cost)) > -1){
         return 0;
-    } else 
+    } else
     if (remaining >= cost) {
         return cost;
     } else {
@@ -158,8 +158,8 @@ function genTable(base) {
     var $8Castings = Math.floor(castingLimit(11) / 11);
     var $9Castings = Math.floor(castingLimit(13) / 13);
 
-    var remainder = [ $1Castings, $2Castings, $3Castings, $4Castings, 
-                    $5Castings, $6Castings, $7Castings, $8Castings, 
+    var remainder = [ $1Castings, $2Castings, $3Castings, $4Castings,
+                    $5Castings, $6Castings, $7Castings, $8Castings,
                     $9Castings ];
 
     // fill table data with remaining castings per level
@@ -177,7 +177,7 @@ function flagCastable(points) {
     // bug: won't let 6-9 spells cast once, because index included before cast
     // if (limitFlag.indexOf(String(points)) > -1) {
     //     castable = false;
-    // } else 
+    // } else
     if (points <= remaining) {
         castable = true;
     } else {
@@ -219,7 +219,7 @@ function setCasterTitle() {
         title = casterTitles[school][4];
     }
     document.getElementById("casterTitle").innerHTML = title;
-    document.getElementById("schoolImage").innerHTML = "<img src=\"images/" + 
+    document.getElementById("schoolImage").innerHTML = "<img src=\"images/" +
         schoolPics[school] + "\">";
 }
 
@@ -252,7 +252,8 @@ function castSpell(spell) {
         genTable(remaining);
         document.getElementById("warning").innerHTML = "";
     } else if (flagAddPoints === false) {
-        document.getElementById("warning").innerHTML = "<p class=\"warning\">Not enough points for that spell!</p>";
+        document.getElementById("warning").innerHTML =
+        "<p class=\"warning\">Not enough points for that spell!</p>";
     }
     spellId = 0;
 }
@@ -261,7 +262,7 @@ function castSpell(spell) {
 genTable(getMaxPoints());
 setCasterTitle();
 
-// events
+// EVENTS
 
 // perform casting when clicking a spell level
 function clickSpell(elementId) {
