@@ -5,11 +5,11 @@ var SpellPoints = {}; //prevent global names
 SpellPoints.Calc = (function () {
 
 var pointsPerLevel = [ 0, 4, 6, 14, 17, 27, 32, 38, 44, 57, 64, 73, 73, 83, 83,
-    94, 84, 107, 114, 123, 133 ];
+    94, 84, 107, 114, 123, 133 ],
 // var castingCost = [ 0, 2, 3, 5, 6, 7, 9, 10, 11, 13 ];
 
 // Spellcaster titles for each school of magic
-var casterTitles = [
+casterTitles = [
     Abjuration = [
         "Prestidigitator",
         "Abjurer",
@@ -73,9 +73,9 @@ var casterTitles = [
         "Metamorph",
         "Sage of Seasons"
     ]
-];
+],
 
-var schoolPics = [
+schoolPics = [
     "abjuration.jpg",
     "conjuration.jpg",
     "divination.jpg",
@@ -84,19 +84,20 @@ var schoolPics = [
     "illusion.jpg",
     "necromancy.jpg",
     "transmutation.jpg"
-];
+],
 
-var max = 0;
-var totalCost = 0;
-var remaining = 0;
-var castable;
-var recovery = 0;
-var points = 0;
-var flagRecovery = false;
-var flagAddPoints = false;
-var addedPoints = 0;
-var limitFlag = [];
-var spellId = 0;
+// max is maximum for each long rest at given level, not for all possible points
+max = 0,
+totalCost = 0,
+remaining = 0,
+castable,
+recovery = 0,
+points = 0,
+flagRecovery = false,
+flagAddPoints = false,
+addedPoints = 0,
+limitFlag = [],
+spellId = 0;
 
 // string formatting function, aliased to string.f
 String.prototype.format = String.prototype.f = function() {
@@ -269,9 +270,6 @@ function clickSpell(elementId) {
     document.getElementById(elementId).onclick = function () {
     spellId = this.value;
     limitFlag.push(spellId);
-    // if (spellId > 7) {
-    //     limitFlag = true;
-    // }
     castSpell(spellId);
     };
 }
