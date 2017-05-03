@@ -309,10 +309,13 @@ document.getElementById("casterSchool").onclick = function(){
 // make functions available for testing
 return {
     flagCastable: flagCastable,
-    arcaneRecovery: arcaneRecovery,
-    genTable: genTable,
     getMaxPoints: getMaxPoints,
-    castSpell: castSpell
+    arcaneRecovery: arcaneRecovery,
+    castingLimit: castingLimit,
+    castSpell: castSpell,
+    changeColor: changeColor,
+    genTable: genTable,
+    setCasterTitle: setCasterTitle
 };
 
 }());
