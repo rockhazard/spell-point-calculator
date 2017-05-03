@@ -93,8 +93,6 @@ remaining = 0,
 castable,
 recovery = 0,
 points = 0,
-flagRecovery = false,
-flagAddPoints = false,
 addedPoints = 0,
 limitFlag = [],
 zeroCasts = [],
@@ -190,21 +188,22 @@ function flagCastable(points) {
 // resets calculator to maximum spell points for selected level and zeros/resets
 // casting-dependent variables
 function getMaxPoints() {
-    castable = true, totalCost = 0, recovery = 0, addPoints = 0;
-    document.getElementById("casting").innerHTML = totalCost;
+    // reset variables and grab caster level
+    castable = true, totalCost = 0, recovery = 0, addPoints = 0,
+    addPoints = 0,limitFlag = [], zeroCasts = [];
     var index = document.getElementById("casterLevel").selectedIndex;
     max = Number(pointsPerLevel[index + 1]);
     remaining = max;
+    // post results
+    document.getElementById("casting").innerHTML = totalCost;
     document.getElementById("max").innerHTML = max;
     document.getElementById("remaining").innerHTML = remaining;
     document.getElementById("warning").innerHTML = "";
     changeColor("remaining", (remaining <= (max / 2)));
-    addPoints = 0;
-    limitFlag = [];
     return max;
 }
 
-// apply school symbol and level title according to level and school selections
+// display school symbol and level title
 function setCasterTitle() {
     var level = Number(document.getElementById("casterLevel").selectedIndex + 1);
     var school = Number(document.getElementById("casterSchool").selectedIndex);
@@ -225,7 +224,7 @@ function setCasterTitle() {
         schoolPics[school] + "\">";
 }
 
-// recalculate spell points after casting a spell
+// cast a spell then recalculate spell points
 function castSpell(spell) {
     spellCost = Number(spell);
     // check if the spell is castable
@@ -250,13 +249,14 @@ function castSpell(spell) {
     spellId = 0;
 }
 
-// ensure table resets on reset of max points and school symbol is loaded
+// ensure table resets on reset of max points
+// then initialize school symbol and level title
 genTable(getMaxPoints());
 setCasterTitle();
 
 // EVENTS
 
-// perform casting when clicking a spell level
+// cast spell when clicking a spell level
 function clickSpell(elementId) {
     document.getElementById(elementId).onclick = function () {
     spellId = this.value;
