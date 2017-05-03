@@ -138,6 +138,7 @@ function arcaneRecovery() {
 // enforces rule that spell point users only have one casting at levels 6 - 9
 function castingLimit(cost) {
     if (limitFlag.indexOf(String(cost)) > -1){
+        // ensures 1-cast spells will not be cast twice in same session
         zeroCasts.push(cost);
         return 0;
     } else
@@ -259,6 +260,7 @@ setCasterTitle();
 function clickSpell(elementId) {
     document.getElementById(elementId).onclick = function () {
     spellId = this.value;
+    // establish whether 1-cast limit spells have been cast
     limitFlag.push(spellId);
     castSpell(spellId);
     };
