@@ -4,9 +4,9 @@ var SpellPoints = {}; //prevent global names
 
 SpellPoints.Calc = (function () {
 
+// var castingCost = [ 0, 2, 3, 5, 6, 7, 9, 10, 11, 13 ];
 var pointsPerLevel = [ 0, 4, 6, 14, 17, 27, 32, 38, 44, 57, 64, 73, 73, 83, 83,
     94, 84, 107, 114, 123, 133 ],
-// var castingCost = [ 0, 2, 3, 5, 6, 7, 9, 10, 11, 13 ];
 
 // Spellcaster titles for each school of magic
 casterTitles = [
@@ -154,7 +154,7 @@ function genTable(base) {
     var $3Castings = Math.floor(base / 5);
     var $4Castings = Math.floor(base / 6);
     var $5Castings = Math.floor(base / 7);
-    // Levels 6-0 only allow one casting per long rest
+    // Levels 6-9 only allow one casting per long rest
     var $6Castings = Math.floor(castingLimit(9) / 9);
     var $7Castings = Math.floor(castingLimit(10) / 10);
     var $8Castings = Math.floor(castingLimit(11) / 11);
