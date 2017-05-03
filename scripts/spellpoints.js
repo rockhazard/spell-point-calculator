@@ -97,6 +97,7 @@ flagRecovery = false,
 flagAddPoints = false,
 addedPoints = 0,
 limitFlag = [],
+zeroCasts = [],
 spellId = 0;
 
 // string formatting function, aliased to string.f
@@ -137,6 +138,7 @@ function arcaneRecovery() {
 // enforces rule that spell point users only have one casting at levels 6 - 9
 function castingLimit(cost) {
     if (limitFlag.indexOf(String(cost)) > -1){
+        zeroCasts.push(cost);
         return 0;
     } else
     if (remaining >= cost) {
@@ -175,7 +177,7 @@ function genTable(base) {
 
 // prevents calculator from casting spells with too few points remaining
 function flagCastable(points) {
-    if (limitFlag.indexOf(points) > -1) {
+    if (zeroCasts.indexOf(points) > -1) {
         castable = false;
     } else if (points <= remaining) {
         castable = true;
