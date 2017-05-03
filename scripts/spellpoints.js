@@ -175,11 +175,9 @@ function genTable(base) {
 
 // prevents calculator from casting spells with too few points remaining
 function flagCastable(points) {
-    // bug: won't let 6-9 spells cast once, because index included before cast
-    // if (limitFlag.indexOf(String(points)) > -1) {
-    //     castable = false;
-    // } else
-    if (points <= remaining) {
+    if (limitFlag.indexOf(points) > -1) {
+        castable = false;
+    } else if (points <= remaining) {
         castable = true;
     } else {
         castable = false;
