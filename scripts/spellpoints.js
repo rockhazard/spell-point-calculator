@@ -195,7 +195,7 @@ function getMaxPoints() {
     max = Number(pointsPerLevel[index + 1]);
     remaining = max;
     document.getElementById("max").innerHTML = max;
-    document.getElementById("remaining").innerHTML = max;
+    document.getElementById("remaining").innerHTML = remaining;
     document.getElementById("warning").innerHTML = "";
     changeColor("remaining", (remaining <= (max / 2)));
     addPoints = 0;
@@ -231,31 +231,21 @@ function castSpell(spell) {
     flagCastable(spellCost);
     if (castable) {
         totalCost += spellCost;
-        // inject recovery points if arcane recovery button clicked
-        if (flagRecovery) {
-            remaining = recovery - spellCost;
-            recovery -= spellCost;
-            flagRecovery = false;
-        } else if (flagAddPoints) {
-            recovery = 0;
-            remaining += addedPoints;
-            totalCost -= addedPoints;
-            max += addedPoints;
-            flagAddPoints = false;
-        } else {
-            remaining = (max + recovery + addPoints) - totalCost;
+        remaining -= spellCost;
+        if (remaining < 1) {
+            remaining = 0;
         }
         // post results
         document.getElementById("casting").innerHTML = totalCost;
         document.getElementById("remaining").innerHTML = remaining;
         // change color of remaining when below half max
         changeColor("remaining", (remaining <= (max / 2)));
-        genTable(remaining);
         document.getElementById("warning").innerHTML = "";
-    } else if (flagAddPoints === false) {
+    } else {
         document.getElementById("warning").innerHTML =
         "<p class=\"warning\">Not enough points for that spell!</p>";
     }
+    genTable(remaining);
     spellId = 0;
 }
 
@@ -287,18 +277,22 @@ clickSpell("spellLevel9");
 // perform arcane recovery during a short rest
 document.getElementById("recovery").onclick = function(){
     recovery = arcaneRecovery();
-    flagRecovery = true;
+    remaining = recovery;
+    document.getElementById("remaining").innerHTML = remaining;
+    genTable(remaining);
 };
 
 // add spell points manually
 document.getElementById("addPoints").onkeypress = function(event){
     if (event.key == "Enter" && Number.isInteger(Number(this.value))) {
     addedPoints = Number(document.getElementById("addPoints").value);
-    flagAddPoints = true;
-    castSpell(addedPoints);
+    remaining += addedPoints;
+    document.getElementById("remaining").innerHTML = remaining;
+    genTable(remaining);
     } else {
         console.warn("addPoints only takes integers!");
     }
+    addedPoints = 0;
 };
 
 // set/reset spell point calculations according to caster level
