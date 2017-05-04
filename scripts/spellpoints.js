@@ -190,7 +190,7 @@ function flagCastable(points) {
 function getMaxPoints() {
     // reset variables and grab caster level
     castable = true, totalCost = 0, recovery = 0, addPoints = 0,
-    addPoints = 0,limitFlag = [], zeroCasts = [];
+    addedPoints = 0,limitFlag = [], zeroCasts = [];
     var index = document.getElementById("casterLevel").selectedIndex;
     max = Number(pointsPerLevel[index + 1]);
     remaining = max;
