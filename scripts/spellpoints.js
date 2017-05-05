@@ -1,14 +1,14 @@
 // calculate spell points for D&D 5e variant rules (DMG p.288)
 
-var SpellPoints = {}; //prevent global names
+var SpellPoints = {};
 
 SpellPoints.Calc = (function() {
 
     // GLOBALS
 
     // var castingCost = [ 0, 2, 3, 5, 6, 7, 9, 10, 11, 13 ];
-    var pointsPerLevel = [0, 4, 6, 14, 17, 27, 32, 38, 44, 57, 64, 73, 73, 83, 83,
-            94, 84, 107, 114, 123, 133
+    var pointsPerLevel = [0, 4, 6, 14, 17, 27, 32, 38, 44, 57, 64, 73, 73, 83, 
+            83, 94, 84, 107, 114, 123, 133
         ],
 
         // Spellcaster titles for each school of magic
@@ -89,7 +89,8 @@ SpellPoints.Calc = (function() {
             "transmutation.jpg"
         ],
 
-        // max is maximum for each long rest at given level, not for all possible points
+        // max is maximum recovered for each long rest at given level, 
+        // not for all possible points
         max = 0,
         totalCost = 0,
         remaining = 0,
@@ -97,13 +98,13 @@ SpellPoints.Calc = (function() {
         recovery = 0,
         points = 0,
         addedPoints = 0,
-        limitFlag = [],
+        spellRegister = [],
         zeroCasts = [],
         spellId = 0;
 
     // FUNCTIONS
 
-    // string formatting function, aliased to string.f
+    // string formatting function, aliased to "string".f
     String.prototype.format = String.prototype.f = function() {
         var s = this,
             i = arguments.length;
@@ -115,8 +116,8 @@ SpellPoints.Calc = (function() {
     };
 
     // switch number to either red or black
-    function changeColor(id, condition) {
-        var element = document.getElementById(id);
+    function changeColor(elementId, condition) {
+        var element = document.getElementById(elementId);
         if (condition) {
             element.style.color = "red";
         } else {
@@ -124,7 +125,7 @@ SpellPoints.Calc = (function() {
         }
     }
 
-    // adds half the caster's max points to remaining pool via arcane recovery
+    // adds half the caster's max points to remaining points
     function arcaneRecovery() {
         var recover = Math.floor(max / 2);
         if (recover + remaining >= max) {
@@ -138,9 +139,10 @@ SpellPoints.Calc = (function() {
         return remaining;
     }
 
-    // enforces rule that spell point users only have one casting at levels 6 - 9
+    // enforces rule that spell point users only have one casting
+    // at levels 6 - 9
     function castingLimit(cost) {
-        if (limitFlag.indexOf(String(cost)) > -1) {
+        if (spellRegister.indexOf(String(cost)) > -1) {
             // ensures 1-cast spells will not be cast twice in same session
             zeroCasts.push(cost);
             return 0;
@@ -180,7 +182,8 @@ SpellPoints.Calc = (function() {
         return remainder;
     }
 
-    // prevents calculator from casting spells with too few points remaining
+    // prevents calculator from casting spells while too few points remain
+    // and prevents more than 1 casting of spell levels 6 - 9 in a session
     function flagCastable(points) {
         if (zeroCasts.indexOf(points) > -1) {
             castable = false;
@@ -195,7 +198,7 @@ SpellPoints.Calc = (function() {
     function getMaxPoints() {
         // reset variables and grab caster level
         castable = true, totalCost = 0, recovery = 0, addPoints = 0,
-            addedPoints = 0, limitFlag = [], zeroCasts = [];
+            addedPoints = 0, spellRegister = [], zeroCasts = [];
         var index = document.getElementById("casterLevel").selectedIndex;
         max = Number(pointsPerLevel[index + 1]);
         remaining = max;
@@ -208,20 +211,20 @@ SpellPoints.Calc = (function() {
         return max;
     }
 
-    // display school symbol and level title
+    // find and display school symbol and level title
     function setCasterTitle() {
         var level = Number(document.getElementById("casterLevel").selectedIndex + 1);
         var school = Number(document.getElementById("casterSchool").selectedIndex);
         var title = "";
         if (level === 1) {
             title = casterTitles[school][0];
-        } else if (level > 1 && level < 6) {
+        } else if (level >= 2 && level <= 5) {
             title = casterTitles[school][1];
-        } else if (level > 5 && level < 14) {
+        } else if (level >= 6 && level <= 13) {
             title = casterTitles[school][2];
-        } else if (level > 13 && level < 18) {
+        } else if (level >= 14 && level <= 17) {
             title = casterTitles[school][3];
-        } else if (level > 17) {
+        } else if (level >= 18) {
             title = casterTitles[school][4];
         }
         document.getElementById("casterTitle").innerHTML = title;
@@ -229,7 +232,7 @@ SpellPoints.Calc = (function() {
             schoolPics[school] + "\">";
     }
 
-    // cast a spell then recalculate spell points
+    // cast a spell then recalculate spell points and castings
     function castSpell(spell) {
         spellCost = Number(spell);
         // check if the spell is castable
@@ -264,8 +267,8 @@ SpellPoints.Calc = (function() {
     function clickSpell(elementId) {
         document.getElementById(elementId).onclick = function() {
             spellId = this.value;
-            // establish whether 1-cast limit spells have been cast
-            limitFlag.push(spellId);
+            // register spell cost to be evaluated by flagCastable 
+            spellRegister.push(spellId);
             castSpell(spellId);
         };
     }
@@ -290,14 +293,15 @@ SpellPoints.Calc = (function() {
 
     // add spell points manually
     document.getElementById("addPoints").onkeypress = function(event) {
-        if (event.key == "Enter" && Number.isInteger(Number(this.value))) {
-            addedPoints = Number(document.getElementById("addPoints").value);
+        addedPoints = Number(this.value);
+        if (event.key == "Enter" && Number.isInteger(addedPoints)) {
             remaining += addedPoints;
             document.getElementById("remaining").innerHTML = remaining;
             genTable(remaining);
         } else {
             console.warn("addPoints only takes integers!");
         }
+        changeColor("remaining", (remaining <= max / 2));
         addedPoints = 0;
     };
 
@@ -306,7 +310,6 @@ SpellPoints.Calc = (function() {
         // reset calculations and title
         setCasterTitle();
         genTable(getMaxPoints());
-        totalCost = 0;
     };
 
     // set caster school and title
