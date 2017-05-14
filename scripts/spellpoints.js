@@ -146,8 +146,7 @@ SpellPoints.Calc = (function() {
             // ensures 1-cast spells will not be cast twice in same session
             zeroCasts.push(cost);
             return 0;
-        } else
-        if (remaining >= cost) {
+        } else if (remaining >= cost) {
             return cost;
         } else {
             return 0;
@@ -271,10 +270,15 @@ SpellPoints.Calc = (function() {
     // cast spell when clicking a spell level
     function clickSpell(elementId) {
         document.getElementById(elementId).onclick = function() {
-            spellId = this.value;
-            // register spell cost to be evaluated by flagCastable 
-            spellRegister.push(spellId);
-            castSpell(spellId);
+            var level = elementId.substr(10,1);
+            var casting = document.getElementById("Level{0}Castings".f(level));
+            // Only cast if player has access to spell level.
+            if (casting.innerHTML !== "-") {
+                spellId = this.value;
+                // register spell cost to be evaluated by flagCastable 
+                spellRegister.push(spellId);
+                castSpell(spellId);
+            }
         };
     }
 
