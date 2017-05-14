@@ -175,8 +175,13 @@ SpellPoints.Calc = (function() {
         // fill table data with remaining castings per level
         for (var i = 0; i < remainder.length; i++) {
             var casting = document.getElementById("Level{0}Castings".f(i + 1));
-            casting.innerHTML = remainder[i];
-            changeColor("Level{0}Castings".f(i + 1), (remainder[i] < 1));
+            // Null castings in levels that player can't access yet.
+            if ((index / 2) >= i) {
+                casting.innerHTML = remainder[i];
+                changeColor("Level{0}Castings".f(i + 1), (remainder[i] < 1));
+            } else {
+                casting.innerHTML = "-";
+            }
         }
 
         return remainder;
@@ -199,7 +204,7 @@ SpellPoints.Calc = (function() {
         // reset variables and grab caster level
         castable = true, totalCost = 0, recovery = 0, addPoints = 0,
             addedPoints = 0, spellRegister = [], zeroCasts = [];
-        var index = document.getElementById("casterLevel").selectedIndex;
+        index = document.getElementById("casterLevel").selectedIndex;
         max = Number(pointsPerLevel[index + 1]);
         remaining = max;
         // post results
