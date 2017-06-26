@@ -7,74 +7,84 @@ SpellPoints.Calc = (function() {
     // GLOBALS
 
     // var castingCost = [ 0, 2, 3, 5, 6, 7, 9, 10, 11, 13 ];
-    var pointsPerLevel = [0, 4, 6, 14, 17, 27, 32, 38, 44, 57, 64, 73, 73, 83, 
-            83, 94, 84, 107, 114, 123, 133
+    var pointsPerLevel = [
+        0, 4, 6, 14, 17, 27, 32, 38, 44, 57, 64, 73, 73, 83,
+        83, 94, 84, 107, 114, 123, 133
         ],
 
         // Spellcaster titles for each school of magic
+        // school name is casterTitles[x][0]
         casterTitles = [
-            Abjuration = [
-                "Prestidigitator",
-                "Abjurer",
-                "Warden",
-                "Glyph Guard",
-                "Sage of Circles"
+            [
+            "Abjuration",
+            "Prestidigitator",
+            "Abjurer",
+            "Warden",
+            "Glyph Guard",
+            "Sage of Circles"
             ],
 
-            Conjuration = [
-                "Prestidigitator",
-                "Conjurer",
-                "Spell Caller",
-                "True Summoner",
-                "Sage of Names"
+            [
+            "Conjuration",
+            "Prestidigitator",
+            "Conjurer",
+            "Spell Caller",
+            "True Summoner",
+            "Sage of Names"
             ],
 
-            Divination = [
-                "Prestidigitator",
-                "Diviner",
-                "Seer",
-                "Mystic",
-                "Sage of Eyes"
+            [
+            "Divination",
+            "Prestidigitator",
+            "Diviner",
+            "Seer",
+            "Mystic",
+            "Sage of Eyes"
             ],
 
-            Enchantment = [
-                "Prestidigitator",
-                "Enchanter",
-                "Glamor Guide",
-                "Entrancer",
-                "Sage of Charms"
+            [
+            "Enchantment",
+            "Prestidigitator",
+            "Enchanter",
+            "Glamor Guide",
+            "Entrancer",
+            "Sage of Charms"
             ],
 
-            Evocation = [
-                "Prestidigitator",
-                "Evoker",
-                "Spell Gyre",
-                "Cataclysm",
-                "Sage of Storms"
+            [
+            "Evocation",
+            "Prestidigitator",
+            "Evoker",
+            "Spell Gyre",
+            "Cataclysm",
+            "Sage of Storms"
             ],
 
-            Illusion = [
-                "Prestidigitator",
-                "Illusionist",
-                "Seemling",
-                "Shadow Master",
-                "Sage of Phantoms"
+            [
+            "Illusion",
+            "Prestidigitator",
+            "Illusionist",
+            "Seemling",
+            "Shadow Master",
+            "Sage of Phantoms"
             ],
 
-            Necromancy = [
-                "Prestidigitator",
-                "Necromancer",
-                "Gravebane",
-                "Hex Lord",
-                "Sage of Reaping"
+            [
+            "Necromancy",
+            "Prestidigitator",
+            "Necromancer",
+            "Gravebane",
+            "Hex Lord",
+            "Sage of Reaping"
             ],
 
-            Transmutation = [
-                "Prestidigitator",
-                "Transmuter",
-                "Thaumaturgist",
-                "Metamorph",
-                "Sage of Seasons"
+            [
+            "Transmutation",
+            "Prestidigitator",
+            "Transmuter",
+            "Thaumaturgist",
+            "Metamorph",
+            "Sage of Seasons"
             ]
         ],
 
@@ -116,9 +126,9 @@ SpellPoints.Calc = (function() {
     };
 
     // switch number to either red or black
-    function changeColor(elementId, condition) {
+    function changeColor(elementId, test) {
         var element = document.getElementById(elementId);
-        if (condition) {
+        if (test) {
             element.style.color = "red";
         } else {
             element.style.color = "black";
@@ -221,15 +231,15 @@ SpellPoints.Calc = (function() {
         var school = Number(document.getElementById("casterSchool").selectedIndex);
         var title = "";
         if (level === 1) {
-            title = casterTitles[school][0];
-        } else if (level >= 2 && level <= 5) {
             title = casterTitles[school][1];
-        } else if (level >= 6 && level <= 13) {
+        } else if (level >= 2 && level <= 5) {
             title = casterTitles[school][2];
-        } else if (level >= 14 && level <= 17) {
+        } else if (level >= 6 && level <= 13) {
             title = casterTitles[school][3];
-        } else if (level >= 18) {
+        } else if (level >= 14 && level <= 17) {
             title = casterTitles[school][4];
+        } else if (level >= 18) {
+            title = casterTitles[school][5];
         }
         document.getElementById("casterTitle").innerHTML = title;
         document.getElementById("schoolImage").innerHTML = "<img src=\"images/" +
@@ -270,7 +280,7 @@ SpellPoints.Calc = (function() {
     // cast spell when clicking a spell level
     function clickSpell(elementId) {
         document.getElementById(elementId).onclick = function() {
-            var level = elementId.substr(10,1);
+            var level = elementId.substr(10, 1);
             var casting = document.getElementById("Level{0}Castings".f(level));
             // Only cast if player has access to spell level.
             if (casting.innerHTML !== "-") {
