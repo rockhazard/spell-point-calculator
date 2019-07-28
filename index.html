@@ -9,8 +9,8 @@
 	<body>
 	<div id="caster">
 	<img id="imageHeader" alt="Spell Point Calculator" src="images/spellpoint_banner.jpg">
-		<form name="spellPoints">
-			<div id="level" class="info">
+		<form name="levels" id="level" >
+			<div class="info">
 				<h3 id="levelH3" >Caster level</h3>
 				<select id="casterLevel" size="1">
 					<option>Level 1</option>
@@ -35,6 +35,8 @@
 					<option>Level 20</option>
 				</select>
 			</div>
+			</form>
+			<form name="schools"></form>
 			<div id="school" class="info">
 				<h3 id="schoolH3" >Caster School</h3>
 				<select id="casterSchool" size="1">
@@ -47,10 +49,11 @@
 					<option>Necromancy</option>
 					<option>Transmutation</option>
 				</select>
-				<div id="schoolImage"></div>
+				
 				<p id="casterTitle"></p>
 			</div>
 		</form>
+		<div id="schoolImage"></div>
 		<div id="remainCalc" class="info">
 			<h3>Cast Spells</h3>
 			<p>Available castings for each level are shown below. Click a level to cast a spell.</p>
@@ -61,22 +64,29 @@
 				<td class="head" align="center"><button id="spellLevel3" title="5 Spell Points" value="5" type="button">Level 3</button></td>
 				<td class="head" align="center"><button id="spellLevel4" title="6 Spell Points" value="6" type="button">Level 4</button></td>
 				<td class="head" align="center"><button id="spellLevel5" title="7 Spell Points" value="7" type="button">Level 5</button></td>
-				<td class="head" align="center"><button id="spellLevel6" title="9 Spell Points" value="9" type="button">Level 6</button></td>
-				<td class="head" align="center"><button id="spellLevel7" title="10 Spell Points" value="10" type="button">Level 7</button></td>
-				<td class="head" align="center"><button id="spellLevel8" title="11 Spell Points" value="11" type="button">Level 8</button></td>
-				<td class="head" align="center"><button id="spellLevel9" title="13 Spell Points" value="13" type="button">Level 9</button></td>
 			</tr>
-			<tr id="castingData" class="data" style="font-size: 1em;">
+			<tr class="data castingData" style="font-size: 1em;">
 				<td id="Level1Castings" class="data">0</td>
 				<td id="Level2Castings" class="data">0</td>
 				<td id="Level3Castings" class="data">0</td>
 				<td id="Level4Castings" class="data">0</td>
 				<td id="Level5Castings" class="data">0</td>
-				<td id="Level6Castings" class="data">0</td>
-				<td id="Level7Castings" class="data">0</td>
-				<td id="Level8Castings" class="data">0</td>
-				<td id="Level9Castings" class="data">0</td>
 			</tr>
+			</table>
+			<table class="spells">
+				<tr class="header">
+					<td class="head" align="center"><button id="spellLevel6" title="9 Spell Points" value="9" type="button">Level 6</button></td>
+					<td class="head" align="center"><button id="spellLevel7" title="10 Spell Points" value="10" type="button">Level 7</button></td>
+					<td class="head" align="center"><button id="spellLevel8" title="11 Spell Points" value="11" type="button">Level 8</button></td>
+					<td class="head" align="center"><button id="spellLevel9" title="13 Spell Points" value="13" type="button">Level 9</button></td>
+				</tr>
+				<tr class="data castingData" style="font-size: 1em;">
+					<td id="Level6Castings" class="data">0</td>
+					<td id="Level7Castings" class="data">0</td>
+					<td id="Level8Castings" class="data">0</td>
+					<td id="Level9Castings" class="data">0</td>
+				</tr>
+	
 			</table>
 			<div id="warning"></div>
 		</div>
