@@ -2,36 +2,44 @@
 spellpoints
 
 */
+@import url('https://fonts.googleapis.com/css?family=Aclonica|Convergence|El+Messiri|Spinnaker&display=swap');
 
 html {
 	background-color: black;
-	font-family: Loma, sans;
+	/* font-family: Loma, sans; */
+	font-family: 'Convergence', sans-serif;
 	font-size: 100%;
 }
 
-body{
+body {
 	padding: 0;
 	margin: 0;
 }
 
-
-
+table {
+	margin-top: 5px;
+}
 
 #caster {
 	display: grid;
 	height: 100%;
 	width: 100%;
 	margin: auto;
-	grid-template-columns: auto 150px 250px 250px auto;
-	grid-template-rows: 150px auto auto auto auto;
+	grid-template-columns: auto 150px 240px 250px auto;
+	grid-template-rows: 150px auto auto auto 300px auto;
 	grid-template-areas: 
 	". header header header ."
 	". level school schoolImage ."
 	". status status schoolImage ."
 	". remainCalc remainCalc remainCalc ."
+	". sp-sheet sp-sheet sp-sheet ."
 	". links . . ."
 	;
-	grid-gap: 10px;
+	grid-gap: 5px;
+}
+
+#sp-sheet {
+	grid-area: sp-sheet;
 }
 
 #imageHeader {
@@ -39,7 +47,7 @@ body{
 	width: 640px;
 }
 
-div.info {
+.info {
 	background: #545448;
 	border-style: solid;
 	border-width: 1px;
@@ -49,19 +57,14 @@ div.info {
 	margin: 5px;
 }
 
-
-
 /* dropdowns */
 
 #level {
 	grid-area: level;
-
 }
 
 #school {
 	grid-area: school;
-
-
 }
 
 #casterTitle {
@@ -73,17 +76,15 @@ div.info {
 
 #schoolImage {
 	grid-area: schoolImage;
-	/* width: 250px;
-	height: 250px; */
 }
 
 /* status */
 
 #status {
 	grid-area: status;
-	/* height: 130px;
-	width: 375px; */
 }
+
+
 
 #statusTable {
 	width: 375px;
@@ -121,10 +122,7 @@ div.info {
 	text-align: center;
 	font-weight: bold;
 	font-style: italic;
-	position: absolute;
 	width: 260px;
-	top: 5px;
-	left: 150px;
 	padding: 5px;
 }
 
@@ -143,8 +141,8 @@ p {
 }
 
 a {
-    text-decoration: none ;
-    color: white;
+	text-decoration: none;
+	color: white;
 }
 
 select {
@@ -158,7 +156,7 @@ button {
 	font-weight: bold;
 	font-size: .9em;
 	border-style: dashed;
-	border-color: black;	
+	border-color: black;
 	background-color: #ffff99;
 	margin-top: 1px;
 	margin-bottom: 1px;
@@ -186,7 +184,8 @@ table.spells {
 }
 
 tr.header {
-	background-color: #ffff99;;
+	background-color: #ffff99;
+	;
 	font-size: .9em;
 	align-content: center;
 }
@@ -205,11 +204,10 @@ td.head {
 	grid-area: links;
 }
 
-.data {
+.data td {
 	font-size: 1.3em;
 	text-align: center;
 	border-style: solid;
 	border-width: 1px;
 	border-color: black;
 }
-

@@ -10,8 +10,8 @@
 	<div id="caster">
 	<img id="imageHeader" alt="Spell Point Calculator" src="images/spellpoint_banner.jpg">
 		<form name="levels" id="level" >
-			<div class="info">
-				<h3 id="levelH3" >Caster level</h3>
+			<div class="info" style="height: 135px;">
+				<h3 id="levelH3">Caster level</h3>
 				<select id="casterLevel" size="1">
 					<option>Level 1</option>
 					<option>Level 2</option>
@@ -59,11 +59,11 @@
 			<p>Available castings for each level are shown below. Click a level to cast a spell.</p>
 			<table class="spells" >
 			<tr id="levelHeader" class="header">
-				<td class="head" align="center"><button id="spellLevel1" title="2 Spell Points" value="2" type="button">Level 1</button></td>
-				<td class="head" align="center"><button id="spellLevel2" title="3 Spell Points" value="3" type="button">Level 2</button></td>
-				<td class="head" align="center"><button id="spellLevel3" title="5 Spell Points" value="5" type="button">Level 3</button></td>
-				<td class="head" align="center"><button id="spellLevel4" title="6 Spell Points" value="6" type="button">Level 4</button></td>
-				<td class="head" align="center"><button id="spellLevel5" title="7 Spell Points" value="7" type="button">Level 5</button></td>
+				<td class="head" align="center"><button id="spellLevel1" title="2 Spell Points" value="2" type="button">Level 1 | 2sp</button></td>
+				<td class="head" align="center"><button id="spellLevel2" title="3 Spell Points" value="3" type="button">Level 2 | 3sp</button></td>
+				<td class="head" align="center"><button id="spellLevel3" title="5 Spell Points" value="5" type="button">Level 3 | 5sp</button></td>
+				<td class="head" align="center"><button id="spellLevel4" title="6 Spell Points" value="6" type="button">Level 4 | 6sp</button></td>
+				<td class="head" align="center"><button id="spellLevel5" title="7 Spell Points" value="7" type="button">Level 5 | 7sp</button></td>
 			</tr>
 			<tr class="data castingData" style="font-size: 1em;">
 				<td id="Level1Castings" class="data">0</td>
@@ -75,10 +75,10 @@
 			</table>
 			<table class="spells">
 				<tr class="header">
-					<td class="head" align="center"><button id="spellLevel6" title="9 Spell Points" value="9" type="button">Level 6</button></td>
-					<td class="head" align="center"><button id="spellLevel7" title="10 Spell Points" value="10" type="button">Level 7</button></td>
-					<td class="head" align="center"><button id="spellLevel8" title="11 Spell Points" value="11" type="button">Level 8</button></td>
-					<td class="head" align="center"><button id="spellLevel9" title="13 Spell Points" value="13" type="button">Level 9</button></td>
+					<td class="head" align="center"><button id="spellLevel6" title="9 Spell Points" value="9" type="button">Level 6 | 9sp</button></td>
+					<td class="head" align="center"><button id="spellLevel7" title="10 Spell Points" value="10" type="button">Level 7 | 10sp</button></td>
+					<td class="head" align="center"><button id="spellLevel8" title="11 Spell Points" value="11" type="button">Level 8 | 11sp</button></td>
+					<td class="head" align="center"><button id="spellLevel9" title="13 Spell Points" value="13" type="button">Level 9 | 13sp</button></td>
 				</tr>
 				<tr class="data castingData" style="font-size: 1em;">
 					<td id="Level6Castings" class="data">0</td>
@@ -106,6 +106,7 @@
 		<button id="recovery" type="button">Arcane Recovery!</button>
 			<input type="text" id="addPoints" placeholder="Add spell points here.">
 		</div>
+		<iframe id="sp-sheet" class="info" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQpc1k5KsrWzyxUCvfVzRHl9j_vvxz2d11iwBZUp3X3FgPDHF1ByTHfz-kD9GSvlW13m4-uvRXPEomy/pubhtml?widget=true&amp;headers=false"></iframe>
 		<div id="links" class="info"><a href="https://rockhazard.github.io/index.html">rockhazard home</div>
 	</div>
     <script type="text/javascript" src="scripts/spellpoints.js"></script>
