@@ -241,9 +241,9 @@ SpellPoints.Calc = (function() {
         } else if (level >= 18) {
             title = casterTitles[school][5];
         }
-        document.getElementById("casterTitle").innerHTML = title;
+        document.getElementById("casterTitle").innerHTML = "Title: \n" + title;
         document.getElementById("schoolImage").innerHTML = "<img src=\"images/" +
-            schoolPics[school] + "\">";
+            schoolPics[school] + "\" />";
     }
 
     // cast a spell then recalculate spell points and castings

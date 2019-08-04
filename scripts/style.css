@@ -26,7 +26,7 @@ table {
 	width: 100%;
 	margin: auto;
 	grid-template-columns: auto 150px 240px 250px auto;
-	grid-template-rows: 150px auto auto auto 300px auto;
+	grid-template-rows: 150px 120px auto auto 300px auto;
 	grid-template-areas: 
 	". header header header ."
 	". level school schoolImage ."
@@ -40,6 +40,8 @@ table {
 
 #sp-sheet {
 	grid-area: sp-sheet;
+	/* width: 630px; */
+	/* grid-area: 5/2/6/5; */
 }
 
 #imageHeader {
@@ -126,11 +128,10 @@ table {
 	padding: 5px;
 }
 
-h3 {
+h2 {
 	color: #ffff99;
 	font-size: 1.4em;
-	margin-top: 0;
-	margin-bottom: 0;
+	margin-bottom: 5px;
 }
 
 p {
