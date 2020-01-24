@@ -26,6 +26,7 @@ table {
 	width: 100%;
 	margin: auto;
 	grid-template-columns: auto 150px 240px 250px auto;
+	/* grid-template-columns: auto 1fr 1fr 1fr auto; */
 	grid-template-rows: 150px 120px auto auto 300px auto;
 	grid-template-areas: 
 	". header header header ."
