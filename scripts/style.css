@@ -14,6 +14,7 @@ html {
 body {
 	padding: 0;
 	margin: 0;
+	overflow-x: hidden;
 }
 
 table {
@@ -22,32 +23,39 @@ table {
 
 #caster {
 	display: grid;
+	justify-content: center;
 	height: 100%;
-	width: 100%;
-	margin: auto;
-	grid-template-columns: auto 150px 240px 250px auto;
+	/* width: 50%; */
+	margin-left: auto;
+	margin-right: auto;
+	grid-template-columns: auto 150px 285px 285px auto;
 	/* grid-template-columns: auto 1fr 1fr 1fr auto; */
-	grid-template-rows: 150px 120px auto auto 300px auto;
+	grid-template-rows: 180px 120px auto auto 300px auto;
 	grid-template-areas: 
 	". header header header ."
 	". level school schoolImage ."
 	". status status schoolImage ."
 	". remainCalc remainCalc remainCalc ."
 	". sp-sheet sp-sheet sp-sheet ."
-	". links . . ."
+	". links links . ."
 	;
 	grid-gap: 5px;
 }
 
 #sp-sheet {
 	grid-area: sp-sheet;
-	/* width: 630px; */
+	width: 97%;
 	/* grid-area: 5/2/6/5; */
 }
 
 #imageHeader {
 	grid-area: header;
-	width: 640px;
+	justify-self: center;
+	width: 100vw;
+	background-image: url("../images/spellpoint_banner.jpg");
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
 }
 
 .info {
@@ -72,13 +80,14 @@ table {
 
 #casterTitle {
 	text-align: left;
-	width: 300px;
+	/* width: 300px; */
 	font-size: 1.2em;
 	color: white;
 }
 
 #schoolImage {
 	grid-area: schoolImage;
+	justify-self: center;
 }
 
 /* status */
@@ -110,6 +119,7 @@ table {
 
 #remainCalc {
 	grid-area: remainCalc;
+
 }
 
 /* formatting */
@@ -137,7 +147,7 @@ h2 {
 
 p {
 	color: white;
-	width: 640px;
+	width: inherit;
 	font-size: 1em;
 	margin-top: 2px;
 }
@@ -162,11 +172,46 @@ button {
 	background-color: #ffff99;
 	margin-top: 1px;
 	margin-bottom: 1px;
+	width: 100%;
 }
 
 button:hover {
 	background-color: #a8a865;
 }
+
+
+.spells {
+	display: grid;
+	grid-row-gap: 5px;
+	grid-template-columns: repeat(5, 1fr);
+	font-weight: bold;
+}
+
+.head {
+	background-color: ;
+}
+
+.spellLevel {
+	padding: 2px;
+	font-weight: bold;
+	/*border-collapse: collapse;*/
+	border-style: solid;
+	border-color: black;
+	border-width: 1px;
+	border-radius: 3px;
+	align-content: center;
+	background-color: white;
+}
+
+
+.data {
+	font-size: 1.3em;
+	/* border-style: solid; */
+	border-width: 1px;
+	/* border-color: black; */
+	text-align: center;
+}
+
 
 /* tables */
 
@@ -206,10 +251,54 @@ td.head {
 	grid-area: links;
 }
 
-.data td {
-	font-size: 1.3em;
-	text-align: center;
-	border-style: solid;
-	border-width: 1px;
-	border-color: black;
+@media (max-width: 750px) {
+	#caster {
+		display: grid;
+		justify-content: center;
+		height: 100%;
+		width: 90%;
+		margin-left: auto;
+		margin-right: auto;
+		/* grid-template-columns: auto 50% 25% 25% auto; */
+		grid-template-columns: repeat(5, minmax(115px, 1fr));
+		grid-template-rows: 180px 120px auto auto auto 300px auto;
+		grid-template-areas: 
+		". header header header ."
+		". level school school ."
+		". schoolImage schoolImage schoolImage ."
+		". status status status ."
+		". remainCalc remainCalc remainCalc ."
+		". sp-sheet sp-sheet sp-sheet ."
+		". links links . ."
+		;
+		grid-gap: 5px;
+
+	}
+
+	.spells {
+		display: grid;
+		width: auto;
+		grid-row-gap: 5px;
+		grid-template-columns: auto;
+		font-weight: bold;
+	}
+
+	#sp-sheet {
+		grid-area: sp-sheet;
+		width: initial;
+		/* grid-area: 5/2/6/5; */
+	}
+
+	#schoolImage {
+		margin-bottom: -30px;
+	}
+
+	#casterLevel {
+		width: 100%;
+		font-size: initial;
+	}
+
+	#statusTable {
+		width: max-content;
+	}
 }
