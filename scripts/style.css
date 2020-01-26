@@ -30,7 +30,7 @@ table {
 	margin-right: auto;
 	grid-template-columns: auto 150px 285px 285px auto;
 	/* grid-template-columns: auto 1fr 1fr 1fr auto; */
-	grid-template-rows: 180px 120px auto auto 300px auto;
+	grid-template-rows: 180px auto auto auto 300px auto;
 	grid-template-areas: 
 	". header header header ."
 	". level school schoolImage ."
@@ -76,6 +76,15 @@ table {
 
 #school {
 	grid-area: school;
+	display: grid;
+	grid-auto-rows: min-content;
+	height: fit-content;
+	padding: 5px;
+
+}
+
+#school p {
+	margin-bottom: 4px;
 }
 
 #casterTitle {
@@ -261,7 +270,7 @@ td.head {
 		margin-right: auto;
 		/* grid-template-columns: auto 50% 25% 25% auto; */
 		grid-template-columns: repeat(5, minmax(115px, 1fr));
-		grid-template-rows: 180px 120px auto auto auto 300px auto;
+		grid-template-rows: 180px auto auto auto auto 300px auto;
 		grid-template-areas: 
 		". header header header ."
 		". level school school ."

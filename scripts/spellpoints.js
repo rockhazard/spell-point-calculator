@@ -208,14 +208,26 @@ SpellPoints.Calc = (function() {
         }
     }
 
+    // retrieves caster type of Full, Half, or Third to assist max point setting
+    function getCasterType(casterType) {  
+        var casterType = (typeof casterType !== 'undefined') ? casterType : document.getElementsByName('casterType'); 
+        for(i = 0; i < casterType.length; i++) { 
+            if(casterType[i].checked) {
+                return Number(casterType[i].value);
+            }
+        } 
+    }
+    
     // resets calculator to maximum spell points and resets session variables
     function getMaxPoints() {
         // reset variables and grab caster level
         castable = true, totalCost = 0, recovery = 0, addPoints = 0,
             addedPoints = 0, spellRegister = [], zeroCasts = [];
-        // casterType = document.getElementById("casterType").selectedIndex;
+        // cTypeValue = document.getElementsByName('casterType');
+        casterType = getCasterType();
+
         index = document.getElementById("casterLevel").selectedIndex;
-        max = Number(pointsPerLevel[index + 1]);
+        max = Math.floor(Number(pointsPerLevel[index + 1]) / Math.floor(casterType));
         remaining = max;
         // post results
         document.getElementById("casting").innerHTML = totalCost;
@@ -346,6 +358,7 @@ SpellPoints.Calc = (function() {
         castSpell: castSpell,
         changeColor: changeColor,
         genTable: genTable,
+        getCasterType: getCasterType,
         setCasterTitle: setCasterTitle
     };
 
