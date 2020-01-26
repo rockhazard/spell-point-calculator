@@ -197,7 +197,7 @@ button:hover {
 }
 
 .head {
-	background-color: ;
+	background-color: #ffff99 ;
 }
 
 .spellLevel {
@@ -260,7 +260,7 @@ td.head {
 	grid-area: links;
 }
 
-@media (max-width: 750px) {
+@media (max-width: 1080px) {
 	#caster {
 		display: grid;
 		justify-content: center;

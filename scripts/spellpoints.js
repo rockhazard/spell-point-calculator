@@ -226,8 +226,12 @@ SpellPoints.Calc = (function() {
         // cTypeValue = document.getElementsByName('casterType');
         casterType = getCasterType();
 
-        index = document.getElementById("casterLevel").selectedIndex;
-        max = Math.floor(Number(pointsPerLevel[index + 1]) / Math.floor(casterType));
+        index = Number(document.getElementById("casterLevel").selectedIndex);
+        max = pointsPerLevel[Math.floor((index + 1) / casterType)];
+        // minimum spell points allowed
+        if (max < 3) {
+            max = 4;
+        }
         remaining = max;
         // post results
         document.getElementById("casting").innerHTML = totalCost;
