@@ -65,10 +65,10 @@ h1 {
 	width: 100vw;
 	padding: 3em 5px;
 	align-content: center;
-	/* background-image: url("../images/spellpoint_banner.png");
+	background-image: url("../images/magic_circles.png");
 	background-size: cover;
 	background-position: center;
-	background-repeat: no-repeat; */
+	background-repeat: no-repeat;
 }
 
 .info {
