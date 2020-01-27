@@ -45,6 +45,7 @@ table {
 #sp-sheet {
 	grid-area: sp-sheet;
 	width: 97%;
+	font-size: 2em;
 	/* grid-area: 5/2/6/5; */
 }
 
@@ -103,6 +104,10 @@ h1 {
 	margin-left: 15px;
 }
 
+label {
+	font-size: 2em;
+}
+
 #casterTitle {
 	text-align: left;
 	/* width: 300px; */
@@ -121,7 +126,10 @@ h1 {
 	grid-area: status;
 }
 
-
+#Type {
+	font-size: 1em;
+	color: white;
+}
 
 #statusTable {
 	width: 100% !important;
@@ -133,7 +141,8 @@ h1 {
 
 #addPoints {
 	font-weight: bold;
-	font-size: 1em;
+	font-size: 2em;
+	padding: 5px;
 	border-style: solid;
 	border-color: black;
 	margin-top: 1px;

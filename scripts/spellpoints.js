@@ -260,7 +260,7 @@ SpellPoints.Calc = (function() {
         }
         document.getElementById("casterTitle").innerHTML = "Title: \n" + title;
         document.getElementById("schoolImage").innerHTML = "<img src=\"images/" +
-            schoolPics[school] + "\" />";
+            schoolPics[school] + "\" height=\"330\" />";
     }
 
     // cast a spell then recalculate spell points and castings
