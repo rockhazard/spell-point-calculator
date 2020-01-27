@@ -166,14 +166,14 @@ h1 {
 
 h2 {
 	color: #ffff99;
-	font-size: 1.4em;
+	font-size: 1.6em;
 	margin-bottom: 5px;
 }
 
 p {
 	color: white;
 	width: inherit;
-	font-size: 1em;
+	font-size: 1.4em;
 	margin-top: 2px;
 }
 
@@ -189,9 +189,11 @@ select {
 	background-color: white;
 }
 
-button {
+#recovery {
 	font-weight: bold;
 	font-size: .9em;
+	height: 3em;
+	padding: .5em;
 	border-style: dashed;
 	border-color: black;
 	background-color: #ffff99;
@@ -200,7 +202,20 @@ button {
 	width: 100%;
 }
 
-button:hover {
+button {
+	font-weight: bold;
+	font-size: .9em;
+	height: minmax(inherit, fit-content);
+	padding: .1em;
+	border-style: dashed;
+	border-color: black;
+	background-color: #ffff99;
+	margin-top: 1px;
+	margin-bottom: 1px;
+	width: 100%;
+}
+
+button:hover, #recovery:hover {
 	background-color: #a8a865;
 }
 
@@ -214,12 +229,15 @@ button:hover {
 
 .head {
 	background-color: #ffff99 ;
+	height: 2em;
+	font-size: 1.1em;
 }
 
 .spellLevel {
 	padding: 2px;
 	font-size: 1.1em;
 	font-weight: bold;
+	height: 6.5em;
 	/*border-collapse: collapse;*/
 	border-style: solid;
 	border-color: black;
@@ -236,6 +254,7 @@ button:hover {
 	border-width: 1px;
 	/* border-color: black; */
 	text-align: center;
+	padding: .8em 0em;
 }
 
 
@@ -305,7 +324,7 @@ td.head {
 		display: grid;
 		width: auto;
 		grid-row-gap: 5px;
-		grid-template-columns: auto;
+		grid-template-columns: auto auto;
 		font-weight: bold;
 	}
 
