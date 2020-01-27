@@ -3,7 +3,7 @@ spellpoints
 
 */
 @import url('https://fonts.googleapis.com/css?family=Aclonica|Convergence|El+Messiri|Spinnaker&display=swap');
-
+@import url('https://fonts.googleapis.com/css?family=Amarante|Cormorant|El+Messiri|Fondamento|IM+Fell+English|IM+Fell+English+SC|Ibarra+Real+Nova|Ovo|Philosopher|Rakkas|Uncial+Antiqua|Vollkorn+SC&display=swap');
 html {
 	background-color: black;
 	/* font-family: Loma, sans; */
@@ -48,14 +48,26 @@ table {
 	/* grid-area: 5/2/6/5; */
 }
 
+h1 {
+	font-size: 4em;
+	color: white;
+	font-weight: bold;
+	font-family: 'Philosopher', sans-serif;
+	/* text-shadow: 2px 2px 2px rgba(255, 255, 255, 1); */
+	text-align: center;
+	vertical-align: middle;
+}
+
 #imageHeader {
 	grid-area: header;
 	justify-self: center;
 	width: 100vw;
-	background-image: url("../images/spellpoint_banner.jpg");
-	background-size: contain;
+	padding: 3em 5px;
+	align-content: center;
+	/* background-image: url("../images/spellpoint_banner.png");
+	background-size: cover;
 	background-position: center;
-	background-repeat: no-repeat;
+	background-repeat: no-repeat; */
 }
 
 .info {
@@ -85,6 +97,10 @@ table {
 
 #school p {
 	margin-bottom: 4px;
+}
+
+.radio {
+	margin-left: 15px;
 }
 
 #casterTitle {
@@ -202,6 +218,7 @@ button:hover {
 
 .spellLevel {
 	padding: 2px;
+	font-size: 1.1em;
 	font-weight: bold;
 	/*border-collapse: collapse;*/
 	border-style: solid;
@@ -265,12 +282,12 @@ td.head {
 		display: grid;
 		justify-content: center;
 		height: 100%;
-		width: 90%;
+		width: 100vw;
 		margin-left: auto;
 		margin-right: auto;
 		/* grid-template-columns: auto 50% 25% 25% auto; */
-		grid-template-columns: repeat(5, minmax(115px, 1fr));
-		grid-template-rows: 180px auto auto auto auto 300px auto;
+		grid-template-columns: 5% repeat(3, minmax(115px, 1fr)) 5% ;
+		grid-template-rows: auto auto auto auto auto 300px auto;
 		grid-template-areas: 
 		". header header header ."
 		". level school school ."
@@ -294,8 +311,7 @@ td.head {
 
 	#sp-sheet {
 		grid-area: sp-sheet;
-		width: initial;
-		/* grid-area: 5/2/6/5; */
+		width: 85vw;
 	}
 
 	#schoolImage {
@@ -304,7 +320,6 @@ td.head {
 
 	#casterLevel {
 		width: 100%;
-		font-size: initial;
 	}
 
 	#statusTable {
