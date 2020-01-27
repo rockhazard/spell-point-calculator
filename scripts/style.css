@@ -25,10 +25,10 @@ table {
 	display: grid;
 	justify-content: center;
 	height: 100%;
-	/* width: 50%; */
+	/* width: 80%; */
 	margin-left: auto;
 	margin-right: auto;
-	grid-template-columns: auto 150px 285px 285px auto;
+	grid-template-columns: 10% repeat(3, minmax(150px, 500px)) 10%;
 	/* grid-template-columns: auto 1fr 1fr 1fr auto; */
 	grid-template-rows: 180px auto auto auto 300px auto;
 	grid-template-areas: 
@@ -49,7 +49,7 @@ table {
 }
 
 h1 {
-	font-size: 4em;
+	font-size: 7em;
 	color: white;
 	font-weight: bold;
 	font-family: 'Philosopher', sans-serif;
@@ -106,7 +106,7 @@ h1 {
 #casterTitle {
 	text-align: left;
 	/* width: 300px; */
-	font-size: 1.2em;
+	font-size: 2em;
 	color: white;
 }
 
@@ -124,12 +124,12 @@ h1 {
 
 
 #statusTable {
-	width: 375px;
+	width: 100% !important;
 }
 
-#recovery {
+/* #recovery {
 	margin-top: 5px;
-}
+} */
 
 #addPoints {
 	font-weight: bold;
@@ -166,14 +166,14 @@ h1 {
 
 h2 {
 	color: #ffff99;
-	font-size: 1.6em;
+	font-size: 3.5em;
 	margin-bottom: 5px;
 }
 
 p {
 	color: white;
 	width: inherit;
-	font-size: 1.4em;
+	font-size: 1.8em;
 	margin-top: 2px;
 }
 
@@ -184,21 +184,21 @@ a {
 
 select {
 	font-weight: bold;
-	font-size: 1.4em;
+	font-size: 3em;
 	border: none;
 	background-color: white;
 }
 
 #recovery {
 	font-weight: bold;
-	font-size: .9em;
+	font-size: 2em;
 	height: 3em;
 	padding: .5em;
 	border-style: dashed;
 	border-color: black;
 	background-color: #ffff99;
-	margin-top: 1px;
-	margin-bottom: 1px;
+	margin-top: 5px;
+	margin-bottom: 5px;
 	width: 100%;
 }
 
@@ -235,7 +235,7 @@ button:hover, #recovery:hover {
 
 .spellLevel {
 	padding: 2px;
-	font-size: 1.1em;
+	font-size: 3em;
 	font-weight: bold;
 	height: 6.5em;
 	/*border-collapse: collapse;*/
@@ -278,12 +278,13 @@ table.spells {
 tr.header {
 	background-color: #ffff99;
 	;
-	font-size: .9em;
+	font-size: 2em;
 	align-content: center;
 }
 
 tr.data {
 	background-color: white;
+	font-size: 4em;
 }
 
 td.head {
