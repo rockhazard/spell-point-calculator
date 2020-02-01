@@ -87,7 +87,7 @@ h1 {
 	grid-gap: 5px;
 	grid-template-columns: auto auto;
 	grid-template-areas: "schools casterType";
-	width: 100%t;
+	width: 100%;
 	padding: 3px;
 
 }
