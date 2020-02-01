@@ -87,7 +87,7 @@ h1 {
 	grid-gap: 5px;
 	grid-template-columns: auto auto;
 	grid-template-areas: "schools casterType";
-	width: fit-content;
+	width: 100%t;
 	padding: 3px;
 
 }
@@ -335,7 +335,7 @@ td.head {
 		display: grid;
 		justify-content: center;
 		height: 100%;
-		width: minmax(768px, 100vw);
+		width: minmax(720px, 100vw);
 		margin-left: auto;
 		margin-right: auto;
 		grid-template-columns: 2% repeat(3, minmax(1fr, 200px)) 2% ;
