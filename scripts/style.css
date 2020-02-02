@@ -14,6 +14,7 @@ html {
 
 body {
 	overflow-x: hidden;
+	overflow-y: auto;
 }
 
 
@@ -66,13 +67,18 @@ h1 {
 }
 
 .info {
-	background: #545448;
-	border-style: solid;
+	/* background: #545448; */
+	/* background: #25251d; */
+	background-image: url(/images/circle_black_bg.png);
+	background-size: contain;
+	border-style: none;
 	border-width: 1px;
 	border-color: #ffff99;
 	border-radius: 5px;
 	padding: 5px;
 	margin: 5px;
+	box-shadow: 0px 0px 5px rgba(255, 0, 0, 0.5);
+
 }
 
 /* dropdowns */
@@ -215,42 +221,71 @@ a {
 }
 
 select {
-	font-weight: bold;
+	/* font-weight: bold;
 	font-size: 2em;
 	border: none;
-	background-color: white;
+	background-color: white; */
+	display: block;
+	font-size: 2em;
+    font-weight: 700;
+    color: #444;
+    line-height: 1.3;
+    padding: .6em 1.4em .5em .8em;
+    width: minmax(content, 100%);
+    /* max-width: 100%;  */
+    box-sizing: border-box;
+    margin: 0;
+    border: 1px solid #aaa;
+    box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+    border-radius: .2em;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    background-image: linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
+    background-repeat: no-repeat, repeat;
+    background-position: right .7em top 50%, 0 0;
+    background-size: .65em auto, 100%;
 }
 
-#recovery {
-	font-weight: bold;
-	font-size: 2em;
-	height: 3em;
-	padding: .5em;
-	border-style: dashed;
-	border-color: black;
-	background-color: #ffff99;
-	margin-top: 5px;
-	margin-bottom: 5px;
-	width: 100%;
-}
+
+
 
 button {
 	font-weight: bold;
-	font-size: .9em;
+	font-size: .7em;
 	height: minmax(inherit, fit-content);
-	padding: .1em;
-	border-style: dashed;
-	border-color: black;
-	background-color: #ffff99;
+	padding: .4em;
+	border-style: solid;
+	border-radius: 2px;
+	border-color: #979759;
+	/* background-color: #ffff99; */
+	background: linear-gradient(180deg, rgba(255,217,122,1) 0%, rgba(255,255,153,1) 100%);
 	margin-top: 1px;
 	margin-bottom: 1px;
 	width: 100%;
 }
 
 button:hover, #recovery:hover {
-	background-color: #a8a865;
+	/* background-color: #a8a865; */
+	background: linear-gradient(180deg, rgba(255, 0, 0, 0.383) 0%, rgba(204, 151, 82, 0.513) 100%);
+	color: white;
 }
 
+
+#recovery {
+	font-weight: bold;
+	font-size: 2em;
+	height: 3em;
+	padding: .5em;
+	border-style: solid;
+	border-color: #979759;
+	/* background-color: #ffff99; */
+	background: linear-gradient(180deg, rgba(255,217,122,1) 0%, rgba(255,255,153,1) 100%);
+	margin-top: 5px;
+	margin-bottom: 5px;
+	width: 100%;
+}
 
 .spells {
 	display: grid;
@@ -260,9 +295,9 @@ button:hover, #recovery:hover {
 }
 
 .head {
-	background-color: #ffff99 ;
+	/* background-color: #ffff99 ; */
 	height: 2em;
-	font-size: 1.1em;
+	/* font-size: .9em; */
 }
 
 .spellLevel {
@@ -308,7 +343,8 @@ table.spells {
 }
 
 tr.header {
-	background-color: #ffff99;
+	/* background-color: #ffff99; */
+	background: linear-gradient(180deg, rgba(255,217,122,1) 0%, rgba(255,255,153,1) 100%);
 	;
 	font-size: 2em;
 	align-content: center;
