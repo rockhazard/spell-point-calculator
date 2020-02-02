@@ -10,10 +10,17 @@
 
 <body>
 	<div id="caster">
-		<!-- <img id="imageHeader" alt="Spell Point Calculator" src="images/spellpoint_banner.jpg"> -->
 		<div id="imageHeader">
 			<h1>Spell Point Calculator</h1>
 		</div>
+		<div id="summary" class="info">
+			<details>
+				<summary>What are spell points?</summary>
+					<p>Spell points are an alternate method for spell casting management in D&amp;D 5th Edition. Traditionally, players would manage a  magic-using character's castings with a concept called "spell slots." Spell slots are easy to use but less flexible. Spell points enhance a player's ability to decide how magical energy will be applied; do you want to spend all your energy on a smaller number of more powerful castings, or do you wish to apply many weaker spells to a complex problem? Somewhere in between? Spell points are your answer &mdash; and this calculator will help you use them with ease. Enjoy!</p>
+			</details>
+			
+		</div>
+		
 		<form name="levels" id="level" class="info">
 			<h2 id="levelh2">Caster level</h2>
 			<select id="casterLevel" size="1">
@@ -56,7 +63,7 @@
 				<p id="casterTitle"></p>
 			</form>
 			<div id="casterType">
-				<h3>Caster Type</h3>
+				<h2>Caster Type</h2>
 				<ul id="casterType-list">
 					<li><input type="radio" name="casterType" value="1" class="radio" checked> <label>Full</label></li>
 					<li><input type="radio" name="casterType" value="2" class="radio"> <label>Half</label></li>

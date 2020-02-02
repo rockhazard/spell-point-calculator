@@ -26,9 +26,10 @@ body {
 	margin-right: auto;
 	grid-template-columns: 2%  repeat(3, 1fr) 2%;
 	/* grid-template-columns: auto 1fr 1fr 1fr auto; */
-	grid-template-rows: 180px auto auto auto 300px auto;
+	grid-template-rows: 180px auto auto auto auto 300px auto;
 	grid-template-areas: 
 	". header header header ."
+	". summary summary summary ."
 	". level school schoolImage ."
 	". status status schoolImage ."
 	". remainCalc remainCalc remainCalc ."
@@ -36,6 +37,23 @@ body {
 	". links links . ."
 	;
 	grid-gap: 5px;
+}
+
+#summary {
+	grid-area: summary;
+	color: white;
+	font-size: 1.8em;
+	margin: 10px 0px;
+
+}
+
+details {
+	font-size: 1em;
+}
+
+details p {
+	border-left: 2px solid red;
+	padding-left: 30px;
 }
 
 #sp-sheet {
@@ -69,7 +87,7 @@ h1 {
 .info {
 	/* background: #545448; */
 	/* background: #25251d; */
-	background-image: url(/images/circle_black_bg.png);
+	background-image: url(../images/circle_black_bg.png);
 	background-size: contain;
 	border-style: none;
 	border-width: 1px;
@@ -199,7 +217,7 @@ label {
 
 h2 {
 	color: #ffff99;
-	font-size: 3em;
+	font-size: 2em;
 	margin-bottom: 5px;
 }
 
@@ -211,8 +229,9 @@ h3 {
 p {
 	color: white;
 	width: inherit;
-	font-size: 1.8em;
-	margin-top: 2px;
+	/* font-size: 1.8em; */
+	font-size: 16pt;
+	margin: 5px 0px;
 }
 
 a {
@@ -375,9 +394,10 @@ td.head {
 		margin-left: auto;
 		margin-right: auto;
 		grid-template-columns: 2% repeat(3, minmax(1fr, 200px)) 2% ;
-		grid-template-rows: auto auto auto auto auto 300px auto;
+		grid-template-rows: auto auto auto auto auto auto 300px auto;
 		grid-template-areas: 
 		". header header header ."
+		". summary summary summary ."
 		". level school school ."
 		". schoolImage schoolImage schoolImage ."
 		". status status status ."
@@ -413,4 +433,34 @@ td.head {
 	#statusTable {
 		width: max-content;
 	}
+}
+
+/* stylng radio and checkbox buttons */
+
+/* hide default radio buttons */
+input[type=checkbox]:not(old),
+input[type=radio   ]:not(old) {
+	width   : 28px;
+	margin  : 0;
+	padding : 0;
+	opacity : 0;
+}
+
+/* Position radio and checkbox labels */
+input[type=checkbox]:not(old) + label,
+input[type=radio   ]:not(old) + label{
+	display      : inline-block;
+	margin-left  : -28px;
+	padding-left : 28px;
+	background   : url('../images/checks.png') no-repeat 0 0;
+	line-height  : 24px;
+}
+
+/* checked/unchecked backgrounds */
+input[type=checkbox]:not(old):checked + label{
+	background-position : 0 -24px;
+}
+
+input[type=radio]:not(old):checked + label{
+	background-position : 0 -48px;
 }
