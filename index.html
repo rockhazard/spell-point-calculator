@@ -16,60 +16,69 @@
 		<div id="summary" class="info">
 			<details>
 				<summary>What are spell points?</summary>
-					<p>Spell points are an alternate method for spell casting management in D&amp;D 5th Edition. Traditionally, players would manage a  magic-using character's castings with a concept called "spell slots." Spell slots are easy to use but less flexible. Spell points enhance a player's ability to decide how magical energy will be applied; do you want to spend all your energy on a smaller number of more powerful castings, or do you wish to apply many weaker spells to a complex problem? Somewhere in between? Spell points are your answer &mdash; and this calculator will help you use them with ease. Enjoy!</p>
+				<p>Spell points are an alternate method for spell casting management in D&amp;D 5th Edition.
+					Traditionally, players would manage a magic-using character's castings with a concept called "spell
+					slots." Spell slots are easy to use but less flexible. Spell points enhance a player's ability to
+					decide how magical energy will be applied; do you want to spend all your energy on a smaller number
+					of more powerful castings, or do you wish to apply many weaker spells to a complex problem?
+					Somewhere in between? Spell points are your answer &mdash; and this calculator will help you use
+					them with ease. Enjoy!</p>
 			</details>
-			
-		</div>
-		
-		<form name="levels" id="level" class="info">
-			<h2 id="levelh2">Caster level</h2>
-			<select id="casterLevel" size="1">
-				<option>Level 1</option>
-				<option>Level 2</option>
-				<option>Level 3</option>
-				<option>Level 4</option>
-				<option>Level 5</option>
-				<option>Level 6</option>
-				<option>Level 7</option>
-				<option>Level 8</option>
-				<option>Level 9</option>
-				<option>Level 10</option>
-				<option>Level 11</option>
-				<option>Level 12</option>
-				<option>Level 13</option>
-				<option>Level 14</option>
-				<option>Level 15</option>
-				<option>Level 16</option>
-				<option>Level 17</option>
-				<option>Level 18</option>
-				<option>Level 19</option>
-				<option>Level 20</option>
-			</select>
-		</form>
-		<div id="school" class="info">
-			<form name="schools" id="schools">
-				<h2 id="schoolh2">Caster School</h2>
-				<select id="casterSchool" size="1">
-					<option>Abjuration</option>
-					<option>Conjuration</option>
-					<option>Divination</option>
-					<option>Enchantment</option>
-					<option>Evocation</option>
-					<option>Illusion</option>
-					<option>Necromancy</option>
-					<option>Transmutation</option>
-				</select>
 
-				<p id="casterTitle"></p>
+		</div>
+		<div class="info" id="profile">
+			<form name="levels" id="level">
+				<h2 id="levelh2">Caster Level</h2>
+				<select id="casterLevel" size="1">
+					<option>Level 1</option>
+					<option>Level 2</option>
+					<option>Level 3</option>
+					<option>Level 4</option>
+					<option>Level 5</option>
+					<option>Level 6</option>
+					<option>Level 7</option>
+					<option>Level 8</option>
+					<option>Level 9</option>
+					<option>Level 10</option>
+					<option>Level 11</option>
+					<option>Level 12</option>
+					<option>Level 13</option>
+					<option>Level 14</option>
+					<option>Level 15</option>
+					<option>Level 16</option>
+					<option>Level 17</option>
+					<option>Level 18</option>
+					<option>Level 19</option>
+					<option>Level 20</option>
+				</select>
 			</form>
-			<div id="casterType">
-				<h2>Caster Type</h2>
-				<ul id="casterType-list">
-					<li><input type="radio" name="casterType" value="1" class="radio" checked> <label>Full</label></li>
-					<li><input type="radio" name="casterType" value="2" class="radio"> <label>Half</label></li>
-					<li><input type="radio" name="casterType" value="3" class="radio"> <label>Third</label></li>
-				</ul>
+			<div id="school">
+				<form name="schools" id="schools">
+					<h2 id="schoolh2">Caster School</h2>
+					<select id="casterSchool" size="1">
+						<option>Abjuration</option>
+						<option>Conjuration</option>
+						<option>Divination</option>
+						<option>Enchantment</option>
+						<option>Evocation</option>
+						<option>Illusion</option>
+						<option>Necromancy</option>
+						<option>Transmutation</option>
+					</select>
+
+					<p id="casterTitle"></p>
+				</form>
 			</div>
+				<div id="casterType">
+					<h2>Caster Type</h2>
+					<ul id="casterType-list">
+						<li><input type="radio" name="casterType" value="1" class="radio" checked> <label>Full</label>
+						</li>
+						<li><input type="radio" name="casterType" value="2" class="radio"> <label>Half</label></li>
+						<li><input type="radio" name="casterType" value="3" class="radio"> <label>Third</label></li>
+					</ul>
+				</div>
+			
 		</div>
 		<div id="schoolImage"></div>
 		<div id="remainCalc" class="info">

@@ -30,7 +30,7 @@ body {
 	grid-template-areas: 
 	". header header header ."
 	". summary summary summary ."
-	". level school schoolImage ."
+	". profile profile schoolImage ."
 	". status status schoolImage ."
 	". remainCalc remainCalc remainCalc ."
 	". sp-sheet sp-sheet sp-sheet ."
@@ -54,6 +54,16 @@ details {
 details p {
 	border-left: 2px solid red;
 	padding-left: 30px;
+}
+
+#profile {
+	grid-area: profile;
+	display: grid;
+	grid-auto-columns: auto auto auto;
+	grid-template-areas:
+	"level school casterType";
+	/* width: fit-content; */
+
 }
 
 #sp-sheet {
@@ -107,12 +117,12 @@ h1 {
 
 #school {
 	grid-area: school;
-	display: grid;
+	/* display: grid;
 	grid-gap: 5px;
 	grid-template-columns: auto auto;
 	grid-template-areas: "schools casterType";
 	width: inherit;
-	padding: 3px;
+	padding: 3px; */
 
 }
 
@@ -128,13 +138,13 @@ h1 {
 	width: max-content;
 }
 
-#schools {
+/* #schools {
 	grid-area: schools;
 	border-right-style: solid;
 	border-width: 1px;
 	border-color: white;
 	padding: 0px 5px;
-}
+} */
 
 .radio {
 	margin-left: 15px;
@@ -398,7 +408,7 @@ td.head {
 		grid-template-areas: 
 		". header header header ."
 		". summary summary summary ."
-		". level school school ."
+		". profile profile profile ."
 		". schoolImage schoolImage schoolImage ."
 		". status status status ."
 		". remainCalc remainCalc remainCalc ."
