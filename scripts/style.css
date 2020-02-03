@@ -59,6 +59,7 @@ details p {
 #profile {
 	grid-area: profile;
 	display: grid;
+	grid-gap: 10px;
 	grid-auto-columns: auto auto auto;
 	grid-template-areas:
 	"level school casterType";
@@ -138,6 +139,10 @@ h1 {
 	width: max-content;
 }
 
+#casterType li {
+	margin: 20px 0px;
+}
+
 /* #schools {
 	grid-area: schools;
 	border-right-style: solid;
@@ -204,8 +209,9 @@ label {
 /* castings */
 
 #remainCalc {
+	display: grid;
 	grid-area: remainCalc;
-
+	grid-gap: 5px;
 }
 
 /* formatting */
@@ -321,6 +327,7 @@ button:hover, #recovery:hover {
 	grid-row-gap: 5px;
 	grid-template-columns: repeat(5, 1fr);
 	font-weight: bold;
+	grid-gap: 10px;
 }
 
 .head {
@@ -333,7 +340,7 @@ button:hover, #recovery:hover {
 	padding: 2px;
 	font-size: 3em;
 	font-weight: bold;
-	height: 6.5em;
+	height: 4em;
 	/*border-collapse: collapse;*/
 	border-style: solid;
 	border-color: black;
@@ -350,7 +357,7 @@ button:hover, #recovery:hover {
 	border-width: 1px;
 	/* border-color: black; */
 	text-align: center;
-	padding: .8em 0em;
+	padding: .1em 0em;
 }
 
 
@@ -425,6 +432,7 @@ td.head {
 		grid-row-gap: 5px;
 		grid-template-columns: auto auto;
 		font-weight: bold;
+		grid-gap: 5px;
 	}
 
 	#sp-sheet {
