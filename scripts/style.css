@@ -174,8 +174,7 @@ label {
 #level {
 	grid-area: level;
 	display: grid;
-	place-content: center center;
-
+	place-content: start center;
 }
 
 #school {
@@ -428,15 +427,19 @@ input[type=radio]:not(old):checked+label {
 	font-weight: bold;
 	padding: 5px;
 	margin-bottom: 5px;
-
 }
 
-#sp-sheet tr:nth-child(even){ 
+#sp-levels tr:nth-child(even) {
+	background: rgba(255, 255, 255, 0.219);
+}
+
+#sp-pool tr:nth-child(odd) {
 	background: rgba(255, 255, 255, 0.219);
 }
 
 #sp-sheet td {
 	padding: 10px 5px;
+	border-style: none;
 }
 
 .one-casting-line {
@@ -448,4 +451,10 @@ input[type=radio]:not(old):checked+label {
 .one-casting {
 	background-color: rgba(255, 0, 0, 0.219);
 	text-align: center;
+}
+
+hr {
+	border: 2px solid white;
+	width: 80vw;
+	margin-bottom: 15px;
 }
