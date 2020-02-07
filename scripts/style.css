@@ -167,6 +167,8 @@ label {
 #sp-sheet {
 	grid-area: sp-sheet;
 	display: grid;
+	grid-template-rows: max-content;
+	grid-gap: 30px;
 }
 
 /* dropdowns */
@@ -309,6 +311,11 @@ label {
 	padding: .1em 0em;
 }
 
+.citation {
+	font-style: italic;
+	font-size: .6em;
+}
+
 /* tables */
 
 table {
@@ -346,6 +353,7 @@ td.head {
 }
 
 @media (max-width: 1080px) {
+/* @media screen and (max-aspect-ratio: 16/10) {	 */
 	#caster {
 		display: grid;
 		justify-content: center;
@@ -400,6 +408,7 @@ input[type=checkbox]:not(old)+label, input[type=radio]:not(old)+label {
 	padding-left: 28px;
 	background: url('../images/checks.svg') no-repeat 0 0;
 	line-height: 24px;
+	margin-bottom: 15px;
 }
 
 /* checked/unchecked backgrounds */
