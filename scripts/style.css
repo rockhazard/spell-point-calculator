@@ -97,9 +97,9 @@ button:hover, #recovery:hover {
 	justify-content: center;
 	margin-left: auto;
 	margin-right: auto;
-	grid-template-columns: 2% repeat(3, 1fr) 2%;
+	grid-template-columns: 10% repeat(3, 1fr) 10%;
 	grid-template-rows: 180px auto auto auto auto auto auto;
-	grid-template-areas: ". header header header ." ". summary summary summary ." ". profile profile schoolImage ." ". status status schoolImage ." ". remainCalc remainCalc remainCalc ." ". sp-sheet sp-sheet sp-sheet ." ". links links . .";
+	grid-template-areas: ". header header header ." ". summary summary summary ." ". profile profile schoolImage ." ". status status schoolImage ." ". remainCalc remainCalc remainCalc ." ". sp-sheet sp-sheet sp-sheet ." "links links links links links";
 	grid-gap: 5px;
 }
 
@@ -135,6 +135,15 @@ label {
 	padding: 5px;
 	margin: 5px;
 	box-shadow: 0px 0px 5px rgba(255, 0, 0, 0.5);
+}
+
+footer, footer>a {
+	background: linear-gradient(to bottom, rgb(37, 37, 37) 1%, rgb(26, 23, 23) 60%, rgb(20, 3, 3) 100%);
+	padding: 10px;
+	margin-bottom: 0px;
+	margin-top: 10px;
+	color: rgb(119, 119, 119);
+	text-align: center;
 }
 
 /* grid areas */
@@ -336,6 +345,7 @@ tr.header {
 	background: linear-gradient(180deg, rgba(255, 217, 122, 1) 0%, rgba(255, 255, 153, 1) 100%);
 	;
 	font-size: 2em;
+	vertical-align: middle;
 }
 
 tr.data {
@@ -400,8 +410,9 @@ hr {
 	margin-bottom: 15px;
 }
 
-@media (max-width: 1080px) {
-/* @media screen and (max-aspect-ratio: 16/10) {	 */
+/* @media (max-width: 1080px) { */
+/* @media screen and (max-aspect-ratio: 9/16) {	 */
+@media (max-width: 1200px), screen and (orientation: portrait) {
 	#caster {
 		display: grid;
 		justify-content: center;
@@ -411,7 +422,7 @@ hr {
 		margin-right: auto;
 		grid-template-columns: 2% repeat(3, minmax(1fr, 200px)) 2%;
 		grid-template-rows: auto auto auto auto auto auto auto auto;
-		grid-template-areas: ". header header header ." ". summary summary summary ." ". profile profile profile ." ". schoolImage schoolImage schoolImage ." ". status status status ." ". remainCalc remainCalc remainCalc ." ". sp-sheet sp-sheet sp-sheet ." ". links links . .";
+		grid-template-areas: ". header header header ." ". summary summary summary ." ". profile profile profile ." ". schoolImage schoolImage schoolImage ." ". status status status ." ". remainCalc remainCalc remainCalc ." ". sp-sheet sp-sheet sp-sheet ." "links links links links links";
 		grid-gap: 5px;
 	}
 	.spells {
