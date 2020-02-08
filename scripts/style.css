@@ -439,6 +439,14 @@ hr {
 	#sp-sheet table {
 		font-size: 3em;
 	}
+
+	button {
+		font-size: .9em;
+	}
+
+	#sp-sheet {
+		width: inherit;
+	}
 }
 
 /* stylng radio and checkbox buttons */
