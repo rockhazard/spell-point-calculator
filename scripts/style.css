@@ -417,7 +417,7 @@ hr {
 		display: grid;
 		justify-content: center;
 		height: 100%;
-		width: minmax(720px, 100vw);
+		/* width: minmax(720px, 100vw); */
 		margin-left: auto;
 		margin-right: auto;
 		grid-template-columns: 2% repeat(3, minmax(1fr, 200px)) 2%;
