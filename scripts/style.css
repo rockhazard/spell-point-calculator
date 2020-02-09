@@ -97,7 +97,7 @@ button:hover, #recovery:hover {
 	justify-content: center;
 	margin-left: auto;
 	margin-right: auto;
-	grid-template-columns: 10% repeat(3, 1fr) 10%;
+	grid-template-columns: 2% repeat(3, 1fr) 2%;
 	grid-template-rows: 180px auto auto auto auto auto auto;
 	grid-template-areas: ". header header header ." ". summary summary summary ." ". profile profile schoolImage ." ". status status schoolImage ." ". remainCalc remainCalc remainCalc ." ". sp-sheet sp-sheet sp-sheet ." "links links links links links";
 	grid-gap: 5px;
@@ -135,15 +135,6 @@ label {
 	padding: 5px;
 	margin: 5px;
 	box-shadow: 0px 0px 5px rgba(255, 0, 0, 0.5);
-}
-
-footer, footer>a {
-	background: linear-gradient(to bottom, rgb(37, 37, 37) 1%, rgb(26, 23, 23) 60%, rgb(20, 3, 3) 100%);
-	padding: 10px;
-	margin-bottom: 0px;
-	margin-top: 10px;
-	color: rgb(119, 119, 119);
-	text-align: center;
 }
 
 /* grid areas */
@@ -231,13 +222,15 @@ footer, footer>a {
 	grid-gap: 5px;
 }
 
+#statusTable {
+	width: 100vw !important;
+	/* width: 100%; */
+}
+
 #casterType-list {
 	list-style: none;
 }
 
-#statusTable {
-	width: 100% !important;
-}
 
 #ap-recovery {
 	display: grid;
@@ -299,13 +292,14 @@ footer, footer>a {
 
 .head {
 	height: 2em;
+	margin-bottom: 5px;
 }
 
 .spellLevel {
 	padding: 2px;
 	font-size: 3em;
 	font-weight: bold;
-	height: 4em;
+	height: fit-content;
 	border-style: solid;
 	border-color: black;
 	border-width: 1px;
@@ -319,6 +313,8 @@ footer, footer>a {
 	border-width: 1px;
 	text-align: center;
 	padding: .1em 0em;
+	margin: 5px;
+	height: fit-content;
 }
 
 .citation {
@@ -337,7 +333,7 @@ table {
 }
 
 table.spells {
-	width: 620px;
+	width: minmax(fit-content, 620px);
 	font-weight: bold;
 }
 
@@ -345,7 +341,6 @@ tr.header {
 	background: linear-gradient(180deg, rgba(255, 217, 122, 1) 0%, rgba(255, 255, 153, 1) 100%);
 	;
 	font-size: 2em;
-	vertical-align: middle;
 }
 
 tr.data {
@@ -358,16 +353,22 @@ td.head {
 	font-weight: bold;
 }
 
-#links {
+#links, #links>a {
 	grid-area: links;
-	font-size: 2em;
+	font-size: 1.5em;
+	background: linear-gradient(to bottom, rgb(37, 37, 37) 1%, rgb(26, 23, 23) 60%, rgb(20, 3, 3) 100%);
+	padding: 10px;
+	margin-bottom: 0px;
+	margin-top: 10px;
+	color: rgb(119, 119, 119);
+	text-align: center;
 }
 
 /* spell points reference table */
 
 #sp-sheet table {
 	color: white;
-	font-size: 1.5em;
+	font-size: 2em;
 	width: 80%;
 	justify-self: center;
 }
@@ -410,14 +411,17 @@ hr {
 	margin-bottom: 15px;
 }
 
-/* @media (max-width: 1080px) { */
-/* @media screen and (max-aspect-ratio: 9/16) {	 */
-@media (max-width: 1200px), screen and (orientation: portrait) {
+
+
+
+
+@media (max-width: 1080px) {
+/* @media screen and (max-aspect-ratio: 16/10) {	 */
 	#caster {
 		display: grid;
 		justify-content: center;
 		height: 100%;
-		/* width: minmax(720px, 100vw); */
+		/* width: minmax(480px, 100vw); */
 		margin-left: auto;
 		margin-right: auto;
 		grid-template-columns: 2% repeat(3, minmax(1fr, 200px)) 2%;
@@ -458,6 +462,34 @@ hr {
 	#sp-sheet {
 		width: inherit;
 	}
+
+	#sp-sheet table {
+		width: 98%;
+	}
+}
+
+
+@media (max-width: 720px) {
+	#profile {
+		grid-area: profile;
+		display: grid;
+		grid-gap: 10px;
+		grid-template-rows: repeat(3, auto);
+		grid-template-areas: "level" "school" "casterType";
+		place-content: stretch stretch;
+		text-align: center;
+	}
+
+	.spells {
+		display: grid;
+		grid-template-columns: auto;
+		font-weight: bold;
+		grid-gap: 5px;
+	}
+
+	#status {
+		width: min-content;
+	}
 }
 
 /* stylng radio and checkbox buttons */
@@ -470,6 +502,7 @@ input[type=checkbox]:not(old), input[type=radio]:not(old) {
 	padding: 0;
 	opacity: 0;
 }
+
 
 /* Position radio and checkbox labels */
 
