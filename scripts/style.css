@@ -158,6 +158,7 @@ label {
 	grid-auto-columns: repeat(3, 33%);
 	grid-template-areas: "level school casterType";
 	place-content: stretch stretch;
+	align-items: start;
 }
 
 #profile div {
@@ -451,7 +452,7 @@ hr {
 	}
 
 	#sp-sheet table {
-		font-size: 3em;
+		font-size: 2em;
 	}
 
 	button {
@@ -472,11 +473,12 @@ hr {
 	#profile {
 		grid-area: profile;
 		display: grid;
-		grid-gap: 10px;
+		grid-gap: 20px;
 		grid-template-rows: repeat(3, auto);
 		grid-template-areas: "level" "school" "casterType";
 		place-content: stretch stretch;
 		text-align: center;
+		align-items: start;
 	}
 
 	.spells {
@@ -488,6 +490,10 @@ hr {
 
 	#status {
 		width: min-content;
+	}
+
+	#casterType {
+		text-align: start;
 	}
 }
 
@@ -521,6 +527,7 @@ input[type=checkbox]:not(old):checked+label {
 }
 
 input[type=radio]:not(old):checked+label {
+
 	background-position: 0 -48px;
 }
 
