@@ -223,8 +223,7 @@ label {
 }
 
 #statusTable {
-	width: 100vw !important;
-	/* width: 100%; */
+	width: 100% !important;
 }
 
 #casterType-list {
