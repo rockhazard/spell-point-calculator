@@ -7,7 +7,8 @@ SpellPoints.Calc = (function() {
     // GLOBALS
 
     // var castingCost = [ 0, 2, 3, 5, 6, 7, 9, 10, 11, 13 ];
-    var pointsPerLevel = [
+    var level = Number(document.getElementById("casterLevel").selectedIndex + 1),
+        pointsPerLevel = [
         0, 4, 6, 14, 17, 27, 32, 38, 44, 57, 64, 73, 73, 83,
         83, 94, 84, 107, 114, 123, 133
         ],
@@ -137,7 +138,8 @@ SpellPoints.Calc = (function() {
 
     // adds half the caster's max points to remaining points
     function arcaneRecovery() {
-        var recover = Math.floor(max / 2);
+        level = Number(document.getElementById("casterLevel").selectedIndex + 1);
+        var recover = Math.floor(level * 2);
         if (recover + remaining >= max) {
             remaining = max;
         } else {
@@ -226,12 +228,22 @@ SpellPoints.Calc = (function() {
         // cTypeValue = document.getElementsByName('casterType');
         casterType = getCasterType();
 
-        index = Number(document.getElementById("casterLevel").selectedIndex);
-        max = pointsPerLevel[Math.floor((index + 1) / casterType)];
+        // index = Number(document.getElementById("casterLevel").selectedIndex);
+        // max = pointsPerLevel[Math.floor((index + 1) / casterType)];
+        // // minimum spell points allowed
+        // if (max < 3) {
+        //     max = 4;
+        // }
+
+        index = Number(document.getElementById("casterLevel").selectedIndex) + 1;
+        level = pointsPerLevel[index]
+        max = Math.floor(level / casterType);
         // minimum spell points allowed
         if (max < 3) {
-            max = 4;
+            max = 2;
         }
+
+
         remaining = max;
         // post results
         document.getElementById("casting").innerHTML = totalCost;
@@ -244,7 +256,7 @@ SpellPoints.Calc = (function() {
 
     // find and display school symbol and level title
     function setCasterTitle() {
-        var level = Number(document.getElementById("casterLevel").selectedIndex + 1);
+        level = Number(document.getElementById("casterLevel").selectedIndex + 1);
         var school = Number(document.getElementById("casterSchool").selectedIndex);
         var title = "";
         if (level === 1) {
@@ -260,7 +272,7 @@ SpellPoints.Calc = (function() {
         }
         document.getElementById("casterTitle").innerHTML = "Title: \n" + title;
         document.getElementById("schoolImage").innerHTML = "<img src=\"images/" +
-            schoolPics[school] + "\" height=\"330\" />";
+            schoolPics[school] + "\" height=\"380\" />";
     }
 
     // cast a spell then recalculate spell points and castings
