@@ -139,7 +139,7 @@ SpellPoints.Calc = (function() {
     // adds half the caster's max points to remaining points
     function arcaneRecovery() {
         level = Number(document.getElementById("casterLevel").selectedIndex + 1);
-        var recover = Math.floor(level * 2);
+        var recover = Math.floor(level);
         if (recover + remaining >= max) {
             remaining = max;
         } else {
