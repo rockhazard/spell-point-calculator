@@ -2,90 +2,90 @@
 
 var SpellPoints = {};
 
-SpellPoints.Calc = (function() {
+SpellPoints.Calc = (function () {
 
     // GLOBALS
 
     // var castingCost = [ 0, 2, 3, 5, 6, 7, 9, 10, 11, 13 ];
     var level = Number(document.getElementById("casterLevel").selectedIndex + 1),
         pointsPerLevel = [
-        0, 4, 6, 14, 17, 27, 32, 38, 44, 57, 64, 73, 73, 83,
-        83, 94, 84, 107, 114, 123, 133
+            0, 4, 6, 14, 17, 27, 32, 38, 44, 57, 64, 73, 73, 83,
+            83, 94, 84, 107, 114, 123, 133
         ],
 
         // Spellcaster titles for each school of magic
         // school name is casterTitles[x][0]
         casterTitles = [
             [
-            "Abjuration",
-            "Prestidigitator",
-            "Abjurer",
-            "Warden",
-            "Glyph Guard",
-            "Sage of Circles"
+                "Abjuration",
+                "Prestidigitator",
+                "Abjurer",
+                "Warden",
+                "Glyph Guard",
+                "Sage of Circles"
             ],
 
             [
-            "Conjuration",
-            "Prestidigitator",
-            "Conjurer",
-            "Spell Caller",
-            "True Summoner",
-            "Sage of Names"
+                "Conjuration",
+                "Prestidigitator",
+                "Conjurer",
+                "Spell Caller",
+                "True Summoner",
+                "Sage of Names"
             ],
 
             [
-            "Divination",
-            "Prestidigitator",
-            "Diviner",
-            "Seer",
-            "Mystic",
-            "Sage of Eyes"
+                "Divination",
+                "Prestidigitator",
+                "Diviner",
+                "Seer",
+                "Mystic",
+                "Sage of Eyes"
             ],
 
             [
-            "Enchantment",
-            "Prestidigitator",
-            "Enchanter",
-            "Glamor Guide",
-            "Entrancer",
-            "Sage of Charms"
+                "Enchantment",
+                "Prestidigitator",
+                "Enchanter",
+                "Glamor Guide",
+                "Entrancer",
+                "Sage of Charms"
             ],
 
             [
-            "Evocation",
-            "Prestidigitator",
-            "Evoker",
-            "Spell Gyre",
-            "Cataclysm",
-            "Sage of Storms"
+                "Evocation",
+                "Prestidigitator",
+                "Evoker",
+                "Spell Gyre",
+                "Cataclysm",
+                "Sage of Storms"
             ],
 
             [
-            "Illusion",
-            "Prestidigitator",
-            "Illusionist",
-            "Seemling",
-            "Shadow Master",
-            "Sage of Phantoms"
+                "Illusion",
+                "Prestidigitator",
+                "Illusionist",
+                "Seemling",
+                "Shadow Master",
+                "Sage of Phantoms"
             ],
 
             [
-            "Necromancy",
-            "Prestidigitator",
-            "Necromancer",
-            "Gravebane",
-            "Hex Lord",
-            "Sage of Reaping"
+                "Necromancy",
+                "Prestidigitator",
+                "Necromancer",
+                "Gravebane",
+                "Hex Lord",
+                "Sage of Reaping"
             ],
 
             [
-            "Transmutation",
-            "Prestidigitator",
-            "Transmuter",
-            "Thaumaturgist",
-            "Metamorph",
-            "Sage of Seasons"
+                "Transmutation",
+                "Prestidigitator",
+                "Transmuter",
+                "Thaumaturgist",
+                "Metamorph",
+                "Sage of Seasons"
             ]
         ],
 
@@ -116,7 +116,7 @@ SpellPoints.Calc = (function() {
     // FUNCTIONS
 
     // string formatting function, aliased to "string".f
-    String.prototype.format = String.prototype.f = function() {
+    String.prototype.format = String.prototype.f = function () {
         var s = this,
             i = arguments.length;
 
@@ -214,15 +214,15 @@ SpellPoints.Calc = (function() {
     }
 
     // retrieves caster type of Full, Half, or Third to assist max point setting
-    function getCasterType(casterType) {  
-        var casterType = (typeof casterType !== 'undefined') ? casterType : document.getElementsByName('casterType'); 
-        for(i = 0; i < casterType.length; i++) { 
-            if(casterType[i].checked) {
+    function getCasterType(casterType) {
+        var casterType = (typeof casterType !== 'undefined') ? casterType : document.getElementsByName('casterType');
+        for (i = 0; i < casterType.length; i++) {
+            if (casterType[i].checked) {
                 return Number(casterType[i].value);
             }
-        } 
+        }
     }
-    
+
     // resets calculator to maximum spell points and resets session variables
     function getMaxPoints() {
         // reset variables and grab caster level
@@ -230,13 +230,6 @@ SpellPoints.Calc = (function() {
             addedPoints = 0, spellRegister = [], zeroCasts = [];
         // cTypeValue = document.getElementsByName('casterType');
         casterType = getCasterType();
-
-        // index = Number(document.getElementById("casterLevel").selectedIndex);
-        // max = pointsPerLevel[Math.floor((index + 1) / casterType)];
-        // // minimum spell points allowed
-        // if (max < 3) {
-        //     max = 4;
-        // }
 
         index = Number(document.getElementById("casterLevel").selectedIndex) + 1;
         level = pointsPerLevel[index]
@@ -311,7 +304,7 @@ SpellPoints.Calc = (function() {
 
     // cast spell when clicking a spell level
     function clickSpell(elementId) {
-        document.getElementById(elementId).onclick = function() {
+        document.getElementById(elementId).onclick = function () {
             var level = elementId.substr(10, 1);
             var casting = document.getElementById("Level{0}Castings".f(level));
             // Only cast if player has access to spell level.
@@ -335,7 +328,7 @@ SpellPoints.Calc = (function() {
     clickSpell("spellLevel9");
 
     // perform arcane recovery during a short rest
-    document.getElementById("recovery").onclick = function() {
+    document.getElementById("recovery").onclick = function () {
         recovery = arcaneRecovery();
         remaining = recovery;
         document.getElementById("remaining").innerHTML = remaining;
@@ -343,7 +336,7 @@ SpellPoints.Calc = (function() {
     };
 
     // add spell points manually
-    document.getElementById("addPoints").onkeypress = function(event) {
+    document.getElementById("addPoints").onkeypress = function (event) {
         addedPoints = Number(this.value);
         if (event.key == "Enter" && Number.isInteger(addedPoints)) {
             remaining += addedPoints;
@@ -357,14 +350,14 @@ SpellPoints.Calc = (function() {
     };
 
     // set/reset spell point calculations according to caster level
-    document.getElementById("casterLevel").onclick = function() {
+    document.getElementById("casterLevel").onclick = function () {
         // reset calculations and title
         setCasterTitle();
         genTable(getMaxPoints());
     };
 
     // set caster school and title
-    document.getElementById("casterSchool").onclick = function() {
+    document.getElementById("casterSchool").onclick = function () {
         setCasterTitle();
     };
 
