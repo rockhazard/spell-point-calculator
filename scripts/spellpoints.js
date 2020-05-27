@@ -6,12 +6,11 @@ SpellPoints.Calc = (function () {
 
     // GLOBALS
 
-    // var castingCost = [ 0, 2, 3, 5, 6, 7, 9, 10, 11, 13 ];
-    var level = Number(document.getElementById("casterLevel").selectedIndex + 1),
-        pointsPerLevel = [
-            0, 4, 6, 14, 17, 27, 32, 38, 44, 57, 64, 73, 73, 83,
-            83, 94, 84, 107, 114, 123, 133
-        ],
+    // reference: castingCost = [ 0, 2, 3, 5, 6, 7, 9, 10, 11, 13 ];
+    const pointsPerLevel = [
+        0, 4, 6, 14, 17, 27, 32, 38, 44, 57, 64, 73, 73, 83,
+        83, 94, 84, 107, 114, 123, 133
+    ],
 
         // Spellcaster titles for each school of magic
         // school name is casterTitles[x][0]
@@ -67,7 +66,7 @@ SpellPoints.Calc = (function () {
                 "Illusionist",
                 "Seemling",
                 "Shadow Master",
-                "Sage of Phantoms"
+                "Sage of Phantasms"
             ],
 
             [
@@ -98,11 +97,11 @@ SpellPoints.Calc = (function () {
             "illusion.jpg",
             "necromancy.jpg",
             "transmutation.jpg"
-        ],
+        ];
 
-        // max is maximum recovered for each long rest at given level, 
-        // not for all possible points
-        max = 0,
+    // max is maximum recovered for each long rest at given level, 
+    // not for all possible points
+    let max = 0,
         totalCost = 0,
         remaining = 0,
         castable,
@@ -190,7 +189,7 @@ SpellPoints.Calc = (function () {
         for (var i = 0; i < remainder.length; i++) {
             var casting = document.getElementById("Level{0}Castings".f(i + 1));
             // Null castings in levels that player can't access yet.
-            if ((index / 2) >= i) {
+            if ((level / 2) >= i) {
                 casting.innerHTML = remainder[i];
                 changeColor("Level{0}Castings".f(i + 1), (remainder[i] < 1));
             } else {
@@ -228,16 +227,14 @@ SpellPoints.Calc = (function () {
         // reset variables and grab caster level
         castable = true, totalCost = 0, recovery = 0, addPoints = 0,
             addedPoints = 0, spellRegister = [], zeroCasts = [];
-        // cTypeValue = document.getElementsByName('casterType');
         casterType = getCasterType();
-
-        index = Number(document.getElementById("casterLevel").selectedIndex) + 1;
-        level = index; //required for functionality of school graphics
-        cLevel = Math.floor(index / casterType);
+        // level var also supplies genTable
+        level = Number(document.getElementById("casterLevel").selectedIndex) + 1;
+        cLevel = Math.floor(level / casterType);
         max = Math.floor(pointsPerLevel[cLevel]);
         // minimum spell points allowed
         if (max < 3) {
-            max = 2;
+            max = 4;
         }
 
 
