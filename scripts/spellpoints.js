@@ -232,8 +232,9 @@ SpellPoints.Calc = (function () {
         casterType = getCasterType();
 
         index = Number(document.getElementById("casterLevel").selectedIndex) + 1;
-        level = pointsPerLevel[index]
-        max = Math.floor(level / casterType);
+        level = index; //required for functionality of school graphics
+        cLevel = Math.floor(index / casterType);
+        max = Math.floor(pointsPerLevel[cLevel]);
         // minimum spell points allowed
         if (max < 3) {
             max = 2;
