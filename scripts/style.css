@@ -156,7 +156,7 @@ label {
 	display: grid;
 	grid-gap: 10px;
 	grid-auto-columns: repeat(3, 33%);
-	grid-template-areas: "level school casterType";
+	grid-template-areas: "casterType level school";
 	place-content: stretch stretch;
 	align-items: start;
 }
@@ -479,7 +479,7 @@ hr {
 		display: grid;
 		grid-gap: 20px;
 		grid-template-rows: repeat(3, auto);
-		grid-template-areas: "level" "school" "casterType";
+		grid-template-areas: "casterType" "level" "school";
 		place-content: stretch stretch;
 		text-align: center;
 		align-items: start;

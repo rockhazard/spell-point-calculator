@@ -214,7 +214,8 @@ SpellPoints.Calc = (function () {
 
     // retrieves caster type of Full, Half, or Third to assist max point setting
     function getCasterType(casterType) {
-        var casterType = (typeof casterType !== 'undefined') ? casterType : document.getElementsByName('casterType');
+        var casterType = (typeof casterType !== 'undefined') ? casterType : 
+            document.getElementsByName('casterType');
         for (i = 0; i < casterType.length; i++) {
             if (casterType[i].checked) {
                 return Number(casterType[i].value);
