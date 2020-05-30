@@ -188,8 +188,9 @@ SpellPoints.Calc = (function () {
         // fill table data with remaining castings per level
         for (var i = 0; i < remainder.length; i++) {
             var casting = document.getElementById("Level{0}Castings".f(i + 1));
-            // Null castings in levels that player can't access yet.
-            if ((level / 2) >= i) {
+            // Determine if caster can cast the processed level.
+            // Display null castings in levels that player can't access yet.
+            if ((level / 2) > i) {
                 casting.innerHTML = remainder[i];
                 changeColor("Level{0}Castings".f(i + 1), (remainder[i] < 1));
             } else {
