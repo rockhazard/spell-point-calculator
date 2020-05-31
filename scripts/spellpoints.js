@@ -170,32 +170,63 @@ SpellPoints.Calc = (function () {
     // calculates max remaining castings for each given spell level
     function genTable(base) {
         // get casting by dividing max points by sp per casting level
-        let  $1Castings = Math.floor(base / 2);
-        let  $2Castings = Math.floor(base / 3);
-        let  $3Castings = Math.floor(base / 5);
-        let  $4Castings = Math.floor(base / 6);
-        let  $5Castings = Math.floor(base / 7);
+        let $1Castings = Math.floor(base / 2);
+        let $2Castings = Math.floor(base / 3);
+        let $3Castings = Math.floor(base / 5);
+        let $4Castings = Math.floor(base / 6);
+        let $5Castings = Math.floor(base / 7);
         // Levels 6-9 only allow one casting per long rest
-        let  $6Castings = Math.floor(castingLimit(9) / 9);
-        let  $7Castings = Math.floor(castingLimit(10) / 10);
-        let  $8Castings = Math.floor(castingLimit(11) / 11);
-        let  $9Castings = Math.floor(castingLimit(13) / 13);
+        let $6Castings = Math.floor(castingLimit(9) / 9);
+        let $7Castings = Math.floor(castingLimit(10) / 10);
+        let $8Castings = Math.floor(castingLimit(11) / 11);
+        let $9Castings = Math.floor(castingLimit(13) / 13);
 
-        let  remainder = [$1Castings, $2Castings, $3Castings, $4Castings,
+        let remainder = [$1Castings, $2Castings, $3Castings, $4Castings,
             $5Castings, $6Castings, $7Castings, $8Castings,
             $9Castings
         ];
 
+        // define spell progression as a function of caster type
+        // full casters gain a spell level every 2 character levels, etc.
+        let progression = 0;
+        switch (getCasterType()) {
+            case 1: progression = 2; 
+            break;
+            case 2: progression = 4;
+            break;
+            case 3: progression = 6;
+            break;
+        }
+
         // fill table data with remaining castings per level
-        for (var i = 0; i < remainder.length; i++) {
-            let casting = document.getElementById("Level{0}Castings".f(i + 1));
+        for (var lvl = 0; lvl < remainder.length; lvl++) {
+            let casting = document.getElementById("Level{0}Castings".f(lvl + 1));
             // Determine if caster can cast the processed level.
             // Display null castings for levels player can't access.
-            if ((level / 2) > i) {
-                casting.innerHTML = remainder[i];
-                changeColor("Level{0}Castings".f(i + 1), (remainder[i] < 1));
+            if ((level / progression) > lvl) {
+                casting.innerHTML = remainder[lvl];
+                changeColor("Level{0}Castings".f(lvl + 1), (remainder[lvl] < 1));
             } else {
                 casting.innerHTML = "-";
+            }
+
+            // half and third casters start getting spells at 2nd & 3rd level
+            // half and third casters can't cast higher than 5th and 4th level
+            if (getCasterType() == 2) {
+                if (lvl > 4) {
+                    casting.innerHTML = "-";
+                }
+                if (level == 1 && lvl == 0) {
+                    casting.innerHTML = "-";
+                }
+
+            } else if (getCasterType() == 3) {
+                if (lvl > 3) {
+                    casting.innerHTML = "-";
+                }
+                if (level < 3 && lvl < 2) {
+                    casting.innerHTML = "-";
+                }
             }
         }
 
