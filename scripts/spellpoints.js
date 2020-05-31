@@ -3,9 +3,6 @@
 var SpellPoints = {};
 
 SpellPoints.Calc = (function () {
-
-    // GLOBALS
-
     // reference: castingCost = [ 0, 2, 3, 5, 6, 7, 9, 10, 11, 13 ];
     const pointsPerLevel = [
         0, 4, 6, 14, 17, 27, 32, 38, 44, 57, 64, 73, 73, 83,
@@ -190,12 +187,11 @@ SpellPoints.Calc = (function () {
         // full casters gain a spell level every 2 character levels, etc.
         let progression = 0;
         switch (getCasterType()) {
-            case 1: progression = 2; 
-            break;
+            case 1: progression = 2;
+                break;
             case 2: progression = 4;
-            break;
+                break;
             case 3: progression = 6;
-            break;
         }
 
         // fill table data with remaining castings per level
@@ -270,7 +266,6 @@ SpellPoints.Calc = (function () {
         if (max < 3) {
             max = 4;
         }
-
 
         remaining = max;
         // post results
@@ -356,7 +351,6 @@ SpellPoints.Calc = (function () {
         }
     }
 
-
     // perform arcane recovery during a short rest
     document.getElementById("recovery").onclick = function () {
         recovery = arcaneRecovery();
@@ -393,7 +387,6 @@ SpellPoints.Calc = (function () {
 
     spellCycle(clickSpell);
 
-
     // make functions available for testing
     return {
         flagCastable: flagCastable,
@@ -407,5 +400,4 @@ SpellPoints.Calc = (function () {
         setCasterTitle: setCasterTitle,
         spellCycle: spellCycle
     };
-
 }());
