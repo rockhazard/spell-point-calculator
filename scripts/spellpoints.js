@@ -127,7 +127,7 @@ SpellPoints.Calc = (function () {
 
     // switch number to either red or black
     function changeColor(elementId, test) {
-        var element = document.getElementById(elementId);
+        let element = document.getElementById(elementId);
         if (test) {
             element.style.color = "red";
         } else {
@@ -137,8 +137,8 @@ SpellPoints.Calc = (function () {
 
     // adds half the caster's max points to remaining points
     function arcaneRecovery() {
-        level = Number(document.getElementById("casterLevel").selectedIndex + 1);
-        var recover = Math.floor(level);
+        let level = Number(document.getElementById("casterLevel").selectedIndex + 1);
+        let recover = Math.floor(level);
         if (recover < 3) {
             recover = 2;
         }
@@ -169,27 +169,28 @@ SpellPoints.Calc = (function () {
 
     // calculates max remaining castings for each given spell level
     function genTable(base) {
-        var $1Castings = Math.floor(base / 2);
-        var $2Castings = Math.floor(base / 3);
-        var $3Castings = Math.floor(base / 5);
-        var $4Castings = Math.floor(base / 6);
-        var $5Castings = Math.floor(base / 7);
+        // get casting by dividing max points by sp per casting level
+        let  $1Castings = Math.floor(base / 2);
+        let  $2Castings = Math.floor(base / 3);
+        let  $3Castings = Math.floor(base / 5);
+        let  $4Castings = Math.floor(base / 6);
+        let  $5Castings = Math.floor(base / 7);
         // Levels 6-9 only allow one casting per long rest
-        var $6Castings = Math.floor(castingLimit(9) / 9);
-        var $7Castings = Math.floor(castingLimit(10) / 10);
-        var $8Castings = Math.floor(castingLimit(11) / 11);
-        var $9Castings = Math.floor(castingLimit(13) / 13);
+        let  $6Castings = Math.floor(castingLimit(9) / 9);
+        let  $7Castings = Math.floor(castingLimit(10) / 10);
+        let  $8Castings = Math.floor(castingLimit(11) / 11);
+        let  $9Castings = Math.floor(castingLimit(13) / 13);
 
-        var remainder = [$1Castings, $2Castings, $3Castings, $4Castings,
+        let  remainder = [$1Castings, $2Castings, $3Castings, $4Castings,
             $5Castings, $6Castings, $7Castings, $8Castings,
             $9Castings
         ];
 
         // fill table data with remaining castings per level
         for (var i = 0; i < remainder.length; i++) {
-            var casting = document.getElementById("Level{0}Castings".f(i + 1));
+            let casting = document.getElementById("Level{0}Castings".f(i + 1));
             // Determine if caster can cast the processed level.
-            // Display null castings in levels that player can't access yet.
+            // Display null castings for levels player can't access.
             if ((level / 2) > i) {
                 casting.innerHTML = remainder[i];
                 changeColor("Level{0}Castings".f(i + 1), (remainder[i] < 1));
@@ -215,7 +216,7 @@ SpellPoints.Calc = (function () {
 
     // retrieves caster type of Full, Half, or Third to assist max point setting
     function getCasterType(casterType) {
-        var casterType = (typeof casterType !== 'undefined') ? casterType : 
+        var casterType = (typeof casterType !== 'undefined') ? casterType :
             document.getElementsByName('casterType');
         for (i = 0; i < casterType.length; i++) {
             if (casterType[i].checked) {
@@ -232,7 +233,7 @@ SpellPoints.Calc = (function () {
         casterType = getCasterType();
         // level var also supplies genTable
         level = Number(document.getElementById("casterLevel").selectedIndex) + 1;
-        cLevel = Math.floor(level / casterType);
+        let cLevel = Math.floor(level / casterType);
         max = Math.floor(pointsPerLevel[cLevel]);
         // minimum spell points allowed
         if (max < 3) {
@@ -317,15 +318,13 @@ SpellPoints.Calc = (function () {
         };
     }
 
-    clickSpell("spellLevel1");
-    clickSpell("spellLevel2");
-    clickSpell("spellLevel3");
-    clickSpell("spellLevel4");
-    clickSpell("spellLevel5");
-    clickSpell("spellLevel6");
-    clickSpell("spellLevel7");
-    clickSpell("spellLevel8");
-    clickSpell("spellLevel9");
+    // cycles through clickSpell for each spell level
+    function spellCycle(cast) {
+        for (i = 0; i < 10; i++) {
+            cast(`spellLevel${i + 1}`);
+        }
+    }
+
 
     // perform arcane recovery during a short rest
     document.getElementById("recovery").onclick = function () {
@@ -361,6 +360,9 @@ SpellPoints.Calc = (function () {
         setCasterTitle();
     };
 
+    spellCycle(clickSpell);
+
+
     // make functions available for testing
     return {
         flagCastable: flagCastable,
@@ -371,7 +373,8 @@ SpellPoints.Calc = (function () {
         changeColor: changeColor,
         genTable: genTable,
         getCasterType: getCasterType,
-        setCasterTitle: setCasterTitle
+        setCasterTitle: setCasterTitle,
+        spellCycle: spellCycle
     };
 
 }());
