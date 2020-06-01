@@ -359,6 +359,11 @@ SpellPoints.Calc = (function () {
         genTable(remaining);
     };
 
+    // perform arcane recovery during a short rest
+    document.getElementById("long-rest").onclick = function () {
+        genTable(getMaxPoints());
+    };
+
     // add spell points manually
     document.getElementById("addPoints").onkeypress = function (event) {
         addedPoints = Number(this.value);

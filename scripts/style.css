@@ -87,10 +87,11 @@ button {
 	width: 100%;
 }
 
-button:hover, #recovery:hover {
+button:hover, .session:hover {
 	background: linear-gradient(180deg, rgba(255, 0, 0, 0.383) 0%, rgba(204, 151, 82, 0.513) 100%);
 	color: white;
 }
+
 
 #caster {
 	display: grid;
@@ -232,9 +233,9 @@ label {
 }
 
 
-#ap-recovery {
+#ap-session {
 	display: grid;
-	grid-template-columns: auto auto;
+	grid-template-columns: 33% 33% 33%;
 	grid-gap: 5px;
 }
 
@@ -271,7 +272,7 @@ label {
 	padding: 5px;
 }
 
-#recovery {
+.session {
 	font-weight: bold;
 	font-size: 2em;
 	height: 3em;
@@ -498,6 +499,14 @@ hr {
 
 	#casterType {
 		text-align: start;
+	}
+
+	#ap-session {
+		display: grid;
+		grid-template-columns: auto;
+		/* grid-auto-rows: auto; */
+		grid-gap: 5px;
+		width: 90vw;
 	}
 }
 
