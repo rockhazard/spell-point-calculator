@@ -11,7 +11,7 @@ Traditionally, a caster must use spell slots to keep track of spells.  For insta
 
 ## Features
 - #### Caster Type Selection:
-Automatically calculates spell point progression for Wizards, Sorcerers, Rangers, Paladins, Eldritch Knights and other classes with ease by allowing the selection of full, half, and third caster spell points and class progressions.
+It allows the selection of full, half, and third caster spell points and class progressions. This means it automatically calculates spell point progression for Wizards, Sorcerers, Rangers, Paladins, and Clerics, among other classes and subclasses, with ease. 
 - #### Level Selection:
 Automatically calculates maximum spell points according to caster level after a long rest.
 - #### Spell Casting:
