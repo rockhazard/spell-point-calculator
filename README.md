@@ -30,7 +30,7 @@ Includes handy tables for spell point and caster type progressions, so you don't
 
 ## Requirements
 Any modern browser.
-[Try it Now!](https://rockhazard.github.io/spell-point-calculator/)
+[Click Here to Try it Now!](https://rockhazard.github.io/spell-point-calculator/)
 
 ## Contributors
 rockhazardz@gmail.com
