@@ -18,9 +18,9 @@ Automatically calculates maximum spell points according to caster level after a 
 Manage your mystic resources at a glance by automatically recalculating remaining spell points after every casting. The calculator displays the number of castings remaining at each level, showing the user how many castings he or she would have if they were to exhaust all their points on one spell level.
 - #### Arcane Recovery:
 Warns when spell points reach 50% of maximum, then allows the player to add their class level in spell points, simulating a short rest with arcane recovery. The calculator allows you to do this multiple times; this is not a bug but rather a quick way to use the adjust points feature in arcane recovery increments.
-- #### Manually Adjust Points:
-Allows player to manually add or remove points in case of mistakes or house rules.
-- ### Long Rest:
+- #### Manually Adjust Spell Points:
+Allows player to manually add or remove spell points in case of mistakes or house rules.
+- #### Long Rest:
 Recover all your spell points or calculate a change like Caster Type at the press of a button.
 - #### School Selection with Level Titles:
 Pick your caster's school of magic and display an associated mystic symbol along with level titles that reflect the special features of your arcane tradition.  You get a new title at each level where your tradition bestows new powers. These titles are not official, just some game flavor.
