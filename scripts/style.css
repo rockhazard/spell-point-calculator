@@ -92,6 +92,9 @@ button:hover, .session:hover {
 	color: white;
 }
 
+#recovery {
+	padding: 0 1rem;
+}
 
 #caster {
 	display: grid;
@@ -354,6 +357,8 @@ td.head {
 	font-weight: bold;
 }
 
+
+
 #links, #links>a {
 	grid-area: links;
 	font-size: 1.5em;
@@ -407,7 +412,7 @@ td.head {
 
 .one-casting {
 	background-color: rgba(255, 0, 0, 0.219);
-	text-align: center;
+	text-align: left;
 }
 
 hr {
@@ -544,3 +549,6 @@ input[type=radio]:not(old):checked+label {
 	background-position: 0 -48px;
 }
 
+.subhead {
+	font-size: 1.8rem;
+}

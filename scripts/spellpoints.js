@@ -103,7 +103,6 @@ SpellPoints.Calc = (function () {
         remaining = 0,
         castable,
         recovery = 0,
-        points = 0,
         addedPoints = 0,
         spellRegister = [],
         zeroCasts = [],
@@ -132,7 +131,7 @@ SpellPoints.Calc = (function () {
         }
     }
 
-    // adds half the caster's max points to remaining points
+    // adds spell points to remaining amount equal to caster level
     function arcaneRecovery() {
         let recover = Number(document.getElementById("casterLevel").selectedIndex + 1);
         if (recover < 3) {
