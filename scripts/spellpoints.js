@@ -381,6 +381,7 @@ SpellPoints.Calc = (function () {
         // reset calculations and title
         setCasterTitle();
         genTable(getMaxPoints());
+        setCasterTitle();
     };
 
     // set caster school and title
