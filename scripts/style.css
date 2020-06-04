@@ -88,7 +88,8 @@ button {
 }
 
 button:hover, .session:hover {
-	background: linear-gradient(180deg, rgba(255, 0, 0, 0.383) 0%, rgba(204, 151, 82, 0.513) 100%);
+	/* background: linear-gradient(180deg, rgba(255, 0, 0, 0.383) 0%, rgba(204, 151, 82, 0.513) 100%); */
+	background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgb(204, 151, 82) 100%);
 	color: white;
 }
 
@@ -357,6 +358,9 @@ td.head {
 	font-weight: bold;
 }
 
+td.subhead {
+	font-size: 1.8rem;
+}
 
 
 #links, #links>a {
@@ -549,6 +553,3 @@ input[type=radio]:not(old):checked+label {
 	background-position: 0 -48px;
 }
 
-.subhead {
-	font-size: 1.8rem;
-}
