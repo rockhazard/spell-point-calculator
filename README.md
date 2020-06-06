@@ -3,7 +3,7 @@ title: Document Center
 ---
 
 # Spell Point Calculator
-
+[Launch Spell Point Calculator](https://rockhazard.github.io/spell-point-calculator/)
 
 ## Description
 A JavaScript utility designed to assist players in managing spell points for the variant player rules in the 5th Edition D&D _Dungeon Master's Guide_ on page 288.
@@ -30,7 +30,6 @@ Includes handy tables for spell point and caster type progressions, so you don't
 
 ## Requirements
 Any modern browser.
-[Click Here to Try it Now!](https://rockhazard.github.io/spell-point-calculator/)
 
 ## Contributors
 rockhazardz@gmail.com
